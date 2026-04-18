@@ -55,19 +55,40 @@ if (contactForm) {
   });
 }
 
-// Field Notes form handling
+// Field Notes form handling (submits to Kit)
 const fieldNotesForm = document.getElementById('fieldNotesForm');
 if (fieldNotesForm) {
   fieldNotesForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = fieldNotesForm.querySelector('button');
-    btn.textContent = 'Subscribed';
+    const email = fieldNotesForm.querySelector('input[name="email_address"]').value;
+    btn.textContent = 'Sending...';
     btn.disabled = true;
-    setTimeout(() => {
+
+    fetch('https://app.kit.com/forms/9340479/subscriptions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email_address: email })
+    })
+    .then(res => {
+      if (res.ok || res.redirected) {
+        btn.textContent = 'Subscribed ✓';
+        fieldNotesForm.reset();
+        setTimeout(() => {
+          btn.textContent = 'Subscribe';
+          btn.disabled = false;
+        }, 4000);
+      } else {
+        throw new Error('Subscription failed');
+      }
+    })
+    .catch(() => {
+      // Fallback: submit the form normally (opens Kit confirmation page)
+      fieldNotesForm.removeEventListener('submit', arguments.callee);
+      fieldNotesForm.submit();
       btn.textContent = 'Subscribe';
       btn.disabled = false;
-      fieldNotesForm.reset();
-    }, 3000);
+    });
   });
 }
 
