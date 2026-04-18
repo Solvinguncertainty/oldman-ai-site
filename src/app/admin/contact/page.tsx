@@ -40,10 +40,47 @@ export default async function AdminContactPage() {
   if (!user) redirect("/admin/login");
 
   const admin = createAdminClient();
-  const { data: submissions } = await admin
+  const { data: submissions, error: subError } = await admin
     .from("contact_submissions")
     .select("*")
     .order("created_at", { ascending: false });
+
+  const tableMissing =
+    !!subError && /relation .* does not exist/i.test(subError.message);
+
+  if (tableMissing) {
+    return (
+      <div className="admin-shell">
+        <header className="admin-topbar">
+          <div className="admin-topbar__brand">
+            <strong>Oldman AI Solutions</strong>
+            <span>Admin</span>
+          </div>
+          <div className="admin-topbar__actions">
+            <span className="admin-topbar__user">{user.email}</span>
+            <form action="/admin/logout" method="post">
+              <button type="submit" className="admin-topbar__logout">
+                Sign out
+              </button>
+            </form>
+          </div>
+        </header>
+        <main className="admin-main">
+          <p className="admin-breadcrumb">
+            <a href="/admin">Dashboard</a> &rsaquo; Contact submissions
+          </p>
+          <h1>Contact submissions</h1>
+          <div className="admin-empty-state">
+            <h3>Database table not created yet.</h3>
+            <p>
+              Open Supabase &rarr; SQL Editor and run migration{" "}
+              <code>0002_contact_submissions.sql</code>. Then refresh this page.
+            </p>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   const list = (submissions ?? []) as Submission[];
   const unreadCount = list.filter((s) => !s.read_at).length;

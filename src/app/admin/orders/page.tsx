@@ -79,10 +79,47 @@ export default async function AdminOrdersPage() {
 
   const admin = createAdminClient();
 
-  const { data: orders } = await admin
+  const { data: orders, error: ordersError } = await admin
     .from("orders")
     .select("*")
     .order("created_at", { ascending: false });
+
+  const tableMissing =
+    !!ordersError && /relation .* does not exist/i.test(ordersError.message);
+
+  if (tableMissing) {
+    return (
+      <div className="admin-shell">
+        <header className="admin-topbar">
+          <div className="admin-topbar__brand">
+            <strong>Oldman AI Solutions</strong>
+            <span>Admin</span>
+          </div>
+          <div className="admin-topbar__actions">
+            <span className="admin-topbar__user">{user.email}</span>
+            <form action="/admin/logout" method="post">
+              <button type="submit" className="admin-topbar__logout">
+                Sign out
+              </button>
+            </form>
+          </div>
+        </header>
+        <main className="admin-main">
+          <p className="admin-breadcrumb">
+            <a href="/admin">Dashboard</a> &rsaquo; Orders
+          </p>
+          <h1>Orders</h1>
+          <div className="admin-empty-state">
+            <h3>Database table not created yet.</h3>
+            <p>
+              Open Supabase &rarr; SQL Editor and run migration{" "}
+              <code>0003_orders.sql</code>. Then refresh this page.
+            </p>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   const orderList = (orders ?? []) as OrderRow[];
 

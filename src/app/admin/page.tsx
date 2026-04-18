@@ -21,13 +21,10 @@ export default async function AdminHomePage() {
     redirect("/admin/login");
   }
 
-  // Dashboard counts
+  // Dashboard counts — each query is resilient so a missing table
+  // (e.g. if a migration hasn't been run yet) doesn't crash the dashboard.
   const admin = createAdminClient();
-  const [
-    { count: productCount },
-    { count: unreadCount },
-    { count: paidOrderCount },
-  ] = await Promise.all([
+  const [productResult, unreadResult, ordersResult] = await Promise.allSettled([
     admin.from("products").select("*", { count: "exact", head: true }),
     admin
       .from("contact_submissions")
@@ -38,6 +35,23 @@ export default async function AdminHomePage() {
       .select("*", { count: "exact", head: true })
       .eq("status", "paid"),
   ]);
+
+  const productCount =
+    productResult.status === "fulfilled" && !productResult.value.error
+      ? productResult.value.count
+      : null;
+  const unreadCount =
+    unreadResult.status === "fulfilled" && !unreadResult.value.error
+      ? unreadResult.value.count
+      : null;
+  const paidOrderCount =
+    ordersResult.status === "fulfilled" && !ordersResult.value.error
+      ? ordersResult.value.count
+      : null;
+  const contactTableMissing =
+    unreadResult.status === "fulfilled" && unreadResult.value.error != null;
+  const ordersTableMissing =
+    ordersResult.status === "fulfilled" && ordersResult.value.error != null;
 
   return (
     <div className="admin-shell">
@@ -104,11 +118,13 @@ export default async function AdminHomePage() {
             </a>
           </h2>
           <p>
-            {unreadCount && unreadCount > 0
-              ? `${unreadCount} unread message${unreadCount === 1 ? "" : "s"}. `
-              : "No unread messages. "}
-            Submissions from the contact form on oldmanaisolutions.com land
-            here.
+            {contactTableMissing
+              ? "⚠️ Database table missing — run supabase/migrations/0002_contact_submissions.sql in Supabase SQL Editor."
+              : unreadCount && unreadCount > 0
+                ? `${unreadCount} unread message${unreadCount === 1 ? "" : "s"}. `
+                : "No unread messages. "}
+            {!contactTableMissing &&
+              "Submissions from the contact form on oldmanaisolutions.com land here."}
           </p>
           <p style={{ marginTop: "16px" }}>
             <a href="/admin/contact" className="admin-btn">
@@ -127,10 +143,13 @@ export default async function AdminHomePage() {
             </a>
           </h2>
           <p>
-            {paidOrderCount && paidOrderCount > 0
-              ? `${paidOrderCount} paid order${paidOrderCount === 1 ? "" : "s"} awaiting fulfillment. `
-              : "No orders awaiting fulfillment. "}
-            Stripe webhooks drop completed orders here with shipping details.
+            {ordersTableMissing
+              ? "⚠️ Database table missing — run supabase/migrations/0003_orders.sql in Supabase SQL Editor."
+              : paidOrderCount && paidOrderCount > 0
+                ? `${paidOrderCount} paid order${paidOrderCount === 1 ? "" : "s"} awaiting fulfillment. `
+                : "No orders awaiting fulfillment. "}
+            {!ordersTableMissing &&
+              "Stripe webhooks drop completed orders here with shipping details."}
           </p>
           <p style={{ marginTop: "16px" }}>
             <a href="/admin/orders" className="admin-btn">
