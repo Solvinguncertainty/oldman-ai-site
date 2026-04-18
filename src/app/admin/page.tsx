@@ -40,26 +40,52 @@ export default async function AdminHomePage() {
       <main className="admin-main">
         <h1>Welcome back, Greg.</h1>
         <p className="lead">
-          You&rsquo;re signed in as <strong>{user.email}</strong>. This is your
-          admin dashboard. Nothing to manage here yet &mdash; product management,
-          orders, and subscriber lists will appear here in upcoming steps.
+          You&rsquo;re signed in as <strong>{user.email}</strong>. Everything you
+          manage across oldmanaisolutions.com and The Craft lives here.
         </p>
 
         <div className="admin-card">
-          <h2>What&rsquo;s coming next</h2>
+          <h2>
+            <a
+              href="/admin/products"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              Products &rsaquo;
+            </a>
+          </h2>
           <p>
-            Step 3 will add a product manager so you can create, edit, and publish
-            your 3D printed products. Step 4 will expose them publicly at{" "}
-            <code>/shop</code>. Step 5 wires up Stripe Checkout so customers can
-            actually buy them.
+            Manage the catalog for <strong>The Craft</strong>. Add, edit, publish,
+            and archive products. Active items appear immediately on{" "}
+            <a href="/shop" target="_blank">/shop</a>.
+          </p>
+          <p style={{ marginTop: "16px" }}>
+            <a href="/admin/products" className="admin-btn">
+              Open product manager
+            </a>{" "}
+            <a
+              href="/admin/products/new"
+              className="admin-btn admin-btn--ghost"
+              style={{ marginLeft: 8 }}
+            >
+              + New product
+            </a>
+          </p>
+        </div>
+
+        <div className="admin-card">
+          <h2>Coming next</h2>
+          <p>
+            Step 4 will add a product detail page (<code>/shop/[slug]</code>) and
+            polish the public catalogue. Step 5 wires up Stripe Checkout so
+            customers can actually buy.
           </p>
         </div>
 
         <div className="admin-card">
           <h2>Status</h2>
           <p>
-            Supabase: connected. Auth: working. Build phase: Step 2 of the
-            roadmap.
+            Supabase: connected. Auth: working. Build phase: Step 3 complete
+            (product management).
           </p>
         </div>
       </main>

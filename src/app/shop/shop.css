@@ -1,0 +1,319 @@
+/* ============================================================
+   The Craft — design system
+   Dark, type-forward, restrained. Sibling of Old Man AI Solutions.
+   ============================================================ */
+
+.craft-root {
+  --craft-bg: #0E0E0E;
+  --craft-surface: #1A1A1A;
+  --craft-hairline: #2A2A28;
+  --craft-text: #E8E4DB;
+  --craft-muted: #8A867D;
+  --craft-brass: #B88A4E;
+  --craft-brass-bright: #D4A567;
+  --craft-ember: #8F3A20;
+
+  --craft-font-display: 'Fraunces', 'Playfair Display', Georgia, serif;
+  --craft-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --craft-font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  background: var(--craft-bg);
+  color: var(--craft-text);
+  font-family: var(--craft-font-body);
+  min-height: 100vh;
+  line-height: 1.6;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Subtle film-grain texture via SVG noise */
+  position: relative;
+}
+
+.craft-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.12 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+.craft-root > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------- Navigation ---------------- */
+.craft-nav {
+  border-bottom: 1px solid var(--craft-hairline);
+  padding: 24px 0;
+}
+
+.craft-nav__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.craft-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--craft-text);
+}
+
+.craft-nav__mark {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.craft-nav__brand-text {
+  font-family: var(--craft-font-display);
+  font-size: 1.35rem;
+  letter-spacing: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.craft-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  font-size: 0.78rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.craft-nav__links a {
+  color: var(--craft-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.craft-nav__links a:hover {
+  color: var(--craft-text);
+}
+
+/* ---------------- Hero ---------------- */
+.craft-hero {
+  padding: 120px 40px 100px;
+  text-align: center;
+  border-bottom: 1px solid var(--craft-hairline);
+}
+
+.craft-hero__logo {
+  max-width: 520px;
+  margin: 0 auto 48px;
+  display: block;
+}
+
+.craft-hero__tagline {
+  font-family: var(--craft-font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--craft-text);
+  max-width: 620px;
+  margin: 0 auto 16px;
+  line-height: 1.4;
+}
+
+.craft-hero__meta {
+  font-family: var(--craft-font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  color: var(--craft-muted);
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+.craft-hero__meta span {
+  color: var(--craft-brass);
+}
+
+/* ---------------- Section rules ---------------- */
+.craft-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 40px;
+}
+
+.craft-section__label {
+  font-family: var(--craft-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  color: var(--craft-brass);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.craft-section__label::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--craft-brass);
+  display: inline-block;
+}
+
+.craft-section__title {
+  font-family: var(--craft-font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+  max-width: 720px;
+  line-height: 1.2;
+}
+
+/* ---------------- Empty state ---------------- */
+.craft-empty {
+  max-width: 640px;
+  margin: 40px auto 0;
+  padding: 80px 40px;
+  text-align: center;
+  border: 1px solid var(--craft-hairline);
+  border-radius: 4px;
+  background: var(--craft-surface);
+}
+
+.craft-empty__mark {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 28px;
+  opacity: 0.65;
+}
+
+.craft-empty__title {
+  font-family: var(--craft-font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--craft-text);
+  margin-bottom: 12px;
+}
+
+.craft-empty__desc {
+  color: var(--craft-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+/* ---------------- Product grid ---------------- */
+.craft-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.craft-product-card {
+  background: transparent;
+  text-decoration: none;
+  color: var(--craft-text);
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.craft-product-card:hover {
+  transform: translateY(-2px);
+}
+
+.craft-product-card__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--craft-surface);
+  border: 1px solid var(--craft-hairline);
+  overflow: hidden;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.craft-product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.craft-product-card__image--placeholder {
+  color: var(--craft-hairline);
+}
+
+.craft-product-card__name {
+  font-family: var(--craft-font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.craft-product-card__price {
+  font-family: var(--craft-font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  color: var(--craft-muted);
+}
+
+/* ---------------- Footer ---------------- */
+.craft-footer {
+  border-top: 1px solid var(--craft-hairline);
+  padding: 48px 40px;
+  text-align: center;
+  color: var(--craft-muted);
+  font-size: 0.82rem;
+}
+
+.craft-footer a {
+  color: var(--craft-brass);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.craft-footer a:hover {
+  color: var(--craft-brass-bright);
+}
+
+.craft-footer__rule {
+  width: 40px;
+  height: 1px;
+  background: var(--craft-brass);
+  margin: 0 auto 24px;
+}
+
+.craft-footer p {
+  margin-bottom: 8px;
+}
+
+.craft-footer__copy {
+  font-family: var(--craft-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 16px;
+  opacity: 0.6;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  .craft-nav__inner { padding: 0 24px; flex-wrap: wrap; gap: 20px; }
+  .craft-nav__links { gap: 24px; font-size: 0.72rem; letter-spacing: 2px; }
+  .craft-nav__brand-text { font-size: 1.1rem; letter-spacing: 4px; }
+  .craft-hero { padding: 80px 24px 70px; }
+  .craft-hero__logo { max-width: 320px; }
+  .craft-section { padding: 60px 24px; }
+  .craft-empty { padding: 60px 24px; }
+}
