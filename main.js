@@ -103,7 +103,7 @@ const observer = new IntersectionObserver((entries) => {
 // Target all animatable elements
 const animatables = document.querySelectorAll(
   '.values__item, .offering-card, .audience-item, .method-step, ' +
-  '.speaking__track, .talk-card, .scenario-card, ' +
+  '.speaking__track, .talk-card, .training__offering-card, ' +
   '.consult-card, .process-step, .product-card, ' +
   '.listen__card, .about__beliefs, .contact__info-item'
 );
