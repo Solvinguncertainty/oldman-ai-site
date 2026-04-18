@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import "./admin.css";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard — Old Man AI Solutions",
@@ -19,6 +20,16 @@ export default async function AdminHomePage() {
   if (!user) {
     redirect("/admin/login");
   }
+
+  // Dashboard counts
+  const admin = createAdminClient();
+  const [{ count: productCount }, { count: unreadCount }] = await Promise.all([
+    admin.from("products").select("*", { count: "exact", head: true }),
+    admin
+      .from("contact_submissions")
+      .select("*", { count: "exact", head: true })
+      .is("read_at", null),
+  ]);
 
   return (
     <div className="admin-shell">
@@ -54,8 +65,11 @@ export default async function AdminHomePage() {
             </a>
           </h2>
           <p>
-            Manage the catalog for <strong>The Craft</strong>. Add, edit, publish,
-            and archive products. Active items appear immediately on{" "}
+            {productCount === 0 || productCount == null
+              ? "No products yet. "
+              : `${productCount} total product${productCount === 1 ? "" : "s"}. `}
+            Manage the catalog for <strong>The Craft</strong>. Active items
+            appear immediately on{" "}
             <a href="/shop" target="_blank">/shop</a>.
           </p>
           <p style={{ marginTop: "16px" }}>
@@ -73,19 +87,33 @@ export default async function AdminHomePage() {
         </div>
 
         <div className="admin-card">
-          <h2>Coming next</h2>
+          <h2>
+            <a
+              href="/admin/contact"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              Contact submissions &rsaquo;
+            </a>
+          </h2>
           <p>
-            Step 4 will add a product detail page (<code>/shop/[slug]</code>) and
-            polish the public catalogue. Step 5 wires up Stripe Checkout so
-            customers can actually buy.
+            {unreadCount && unreadCount > 0
+              ? `${unreadCount} unread message${unreadCount === 1 ? "" : "s"}. `
+              : "No unread messages. "}
+            Submissions from the contact form on oldmanaisolutions.com land
+            here.
+          </p>
+          <p style={{ marginTop: "16px" }}>
+            <a href="/admin/contact" className="admin-btn">
+              View inbox
+            </a>
           </p>
         </div>
 
         <div className="admin-card">
-          <h2>Status</h2>
+          <h2>Coming next</h2>
           <p>
-            Supabase: connected. Auth: working. Build phase: Step 3 complete
-            (product management).
+            Cart + Stripe Checkout is the next big piece. After that: order
+            tracking, shipping, and real photography for the About section.
           </p>
         </div>
       </main>

@@ -49,11 +49,11 @@ export default function ClientScripts() {
       return { anchor, handler };
     });
 
-    // --- Contact form handling ---
+    // --- Contact form handling (posts to /api/contact) ---
     const contactForm = document.getElementById(
       "contactForm"
     ) as HTMLFormElement | null;
-    const onContactSubmit = (e: Event) => {
+    const onContactSubmit = async (e: Event) => {
       e.preventDefault();
       if (!contactForm) return;
       const btn = contactForm.querySelector(
@@ -61,17 +61,47 @@ export default function ClientScripts() {
       ) as HTMLButtonElement | null;
       if (!btn) return;
       const originalText = btn.textContent;
-      btn.textContent = "Message Sent";
-      btn.style.background = "var(--amber)";
-      btn.style.color = "var(--bg)";
+
+      const payload = {
+        firstName: (contactForm.querySelector("#firstName") as HTMLInputElement | null)?.value ?? "",
+        org: (contactForm.querySelector("#org") as HTMLInputElement | null)?.value ?? "",
+        email: (contactForm.querySelector("#email") as HTMLInputElement | null)?.value ?? "",
+        interest: (contactForm.querySelector("#interest") as HTMLSelectElement | null)?.value ?? "",
+        message: (contactForm.querySelector("#message") as HTMLTextAreaElement | null)?.value ?? "",
+        website: (contactForm.querySelector('input[name="website"]') as HTMLInputElement | null)?.value ?? "",
+      };
+
+      btn.textContent = "Sending...";
       btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = "";
-        btn.style.color = "";
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) {
+          btn.textContent = "Message Sent \u2713";
+          btn.style.background = "var(--amber)";
+          btn.style.color = "var(--bg)";
+          contactForm.reset();
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = "";
+            btn.style.color = "";
+            btn.disabled = false;
+          }, 4000);
+        } else {
+          const data = (await res.json().catch(() => null)) as { error?: string } | null;
+          btn.textContent = "Try again";
+          btn.disabled = false;
+          alert(data?.error ?? "Something went wrong. Please email greg@oldmanaisolutions.com.");
+        }
+      } catch {
+        btn.textContent = "Try again";
         btn.disabled = false;
-        contactForm.reset();
-      }, 3000);
+        alert("Network error. Please email greg@oldmanaisolutions.com.");
+      }
     };
     contactForm?.addEventListener("submit", onContactSubmit);
 

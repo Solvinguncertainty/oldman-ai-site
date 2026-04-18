@@ -12,7 +12,7 @@
         <li><a href="#speaking">Speaking</a></li>
         <li><a href="#training">Training</a></li>
         <li><a href="#consulting">Consulting</a></li>
-        <li><a href="#products">Products</a></li>
+        <li><a href="/shop">Shop</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact" class="nav__cta">Book a Talk</a></li>
       </ul>
@@ -543,6 +543,8 @@
           </div>
         </div>
         <form class="contact__form" id="contactForm">
+          <!-- honeypot: hidden from humans, bots fill it -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">Name *</label>
@@ -594,6 +596,7 @@
             <li><a href="#training">Training</a></li>
             <li><a href="#consulting">Consulting</a></li>
             <li><a href="#products">Products</a></li>
+            <li><a href="/shop">The Craft (Shop)</a></li>
           </ul>
         </div>
         <div class="footer__links">

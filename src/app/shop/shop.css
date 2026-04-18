@@ -307,6 +307,279 @@
   opacity: 0.6;
 }
 
+/* ---------------- Back link ---------------- */
+.craft-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--craft-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--craft-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.craft-back:hover {
+  color: var(--craft-brass);
+}
+
+.craft-back::before {
+  content: "\2190";
+  font-size: 0.9rem;
+}
+
+/* ---------------- Product detail ---------------- */
+.craft-product-hero {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--craft-surface);
+  border-bottom: 1px solid var(--craft-hairline);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.craft-product-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.craft-product-hero--empty {
+  color: var(--craft-hairline);
+}
+
+.craft-product-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 64px 40px;
+}
+
+.craft-product-main__top {
+  margin-bottom: 40px;
+}
+
+.craft-product-title {
+  font-family: var(--craft-font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 20px 0 16px;
+  color: var(--craft-text);
+}
+
+.craft-product-price {
+  font-family: var(--craft-font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: var(--craft-brass);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--craft-hairline);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.craft-product-price__status {
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: var(--craft-muted);
+  text-transform: uppercase;
+}
+
+.craft-product-price__status--out {
+  color: var(--craft-ember);
+}
+
+.craft-product-description {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--craft-text);
+  white-space: pre-wrap;
+}
+
+.craft-product-description p {
+  margin-bottom: 1.2em;
+}
+
+.craft-product-actions {
+  margin: 48px 0 32px;
+}
+
+.craft-btn {
+  display: inline-block;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--craft-brass);
+  border: 1px solid var(--craft-brass);
+  border-radius: 2px;
+  font-family: var(--craft-font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.craft-btn:hover {
+  background: var(--craft-brass);
+  color: var(--craft-bg);
+}
+
+.craft-btn:disabled,
+.craft-btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.craft-product-note {
+  margin-top: 16px;
+  font-family: var(--craft-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: var(--craft-muted);
+  text-transform: uppercase;
+}
+
+.craft-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
+  padding: 32px 0;
+  border-top: 1px solid var(--craft-hairline);
+  border-bottom: 1px solid var(--craft-hairline);
+  margin: 48px 0;
+}
+
+.craft-specs__item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.craft-specs__label {
+  font-family: var(--craft-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--craft-muted);
+}
+
+.craft-specs__value {
+  font-family: var(--craft-font-display);
+  font-size: 1rem;
+  color: var(--craft-text);
+}
+
+.craft-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 48px 0;
+}
+
+.craft-gallery__img {
+  aspect-ratio: 1 / 1;
+  background: var(--craft-surface);
+  border: 1px solid var(--craft-hairline);
+  overflow: hidden;
+}
+
+.craft-gallery__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------------- About page ---------------- */
+.craft-about {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 100px 40px;
+}
+
+.craft-about__lead {
+  font-family: var(--craft-font-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--craft-text);
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--craft-hairline);
+}
+
+.craft-about__prose {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--craft-text);
+}
+
+.craft-about__prose p {
+  margin-bottom: 1.4em;
+}
+
+.craft-about__prose p:first-letter {
+  font-family: var(--craft-font-display);
+  font-size: 1.15em;
+  color: var(--craft-brass);
+}
+
+.craft-about__sig {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--craft-hairline);
+  font-family: var(--craft-font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--craft-muted);
+}
+
+.craft-about__sig span {
+  color: var(--craft-brass);
+}
+
+/* ---------------- Not found ---------------- */
+.craft-notfound {
+  text-align: center;
+  padding: 120px 40px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.craft-notfound__code {
+  font-family: var(--craft-font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 3px;
+  color: var(--craft-brass);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.craft-notfound__title {
+  font-family: var(--craft-font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.craft-notfound__desc {
+  color: var(--craft-muted);
+  margin-bottom: 40px;
+}
+
 /* ---------------- Responsive ---------------- */
 @media (max-width: 768px) {
   .craft-nav__inner { padding: 0 24px; flex-wrap: wrap; gap: 20px; }
