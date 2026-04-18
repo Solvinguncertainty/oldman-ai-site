@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./shop.css";
 
 export const metadata: Metadata = {
-  title: "The Craft — A workshop of Old Man AI Solutions",
+  title: "The Craft — A workshop of Oldman AI Solutions",
   description:
     "Small batches. Real objects. 3D printed goods from a single workshop in Lethbridge, Alberta.",
   openGraph: {

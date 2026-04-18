@@ -10,7 +10,7 @@ export default function NotFound() {
           <div className="craft-nav__links">
             <a href="/shop">Shop</a>
             <a href="/shop/about">About</a>
-            <a href="/">Old Man AI</a>
+            <a href="/">Oldman AI Solutions</a>
           </div>
         </div>
       </nav>
@@ -27,7 +27,7 @@ export default function NotFound() {
 
       <footer className="craft-footer">
         <div className="craft-footer__rule" />
-        <p>A workshop of <a href="/">Old Man AI Solutions</a>.</p>
+        <p>A workshop of <a href="/">Oldman AI Solutions</a>.</p>
         <p className="craft-footer__copy">&copy; 2026 The Craft</p>
       </footer>
     </>

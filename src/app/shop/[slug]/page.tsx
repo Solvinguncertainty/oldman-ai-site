@@ -7,6 +7,7 @@ import {
   type Product,
   type ProductImage,
 } from "@/lib/products/types";
+import BuyButton from "./BuyButton";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${data.name} — The Craft`,
     description:
       (data.description ?? "").slice(0, 180) ||
-      "A small-batch object from The Craft, a workshop of Old Man AI Solutions.",
+      "A small-batch object from The Craft, a workshop of Oldman AI Solutions.",
   };
 }
 
@@ -68,7 +69,7 @@ export default async function ProductDetailPage({ params }: Props) {
           <div className="craft-nav__links">
             <a href="/shop">Shop</a>
             <a href="/shop/about">About</a>
-            <a href="/">Old Man AI</a>
+            <a href="/">Oldman AI Solutions</a>
           </div>
         </div>
       </nav>
@@ -119,16 +120,11 @@ export default async function ProductDetailPage({ params }: Props) {
         ) : null}
 
         <div className="craft-product-actions">
-          <button
-            type="button"
-            className="craft-btn craft-btn--disabled"
-            disabled
-          >
-            {inStock ? "Add to cart" : "Notify me"}
-          </button>
-          <p className="craft-product-note">
-            Checkout opens soon &bull; For early inquiries, email greg@oldmanaisolutions.com
-          </p>
+          <BuyButton
+            slug={product.slug}
+            inStock={inStock}
+            label="Buy now"
+          />
         </div>
 
         {(product.materials ||
@@ -184,7 +180,7 @@ export default async function ProductDetailPage({ params }: Props) {
       {/* Footer */}
       <footer className="craft-footer">
         <div className="craft-footer__rule" />
-        <p>A workshop of <a href="/">Old Man AI Solutions</a>.</p>
+        <p>A workshop of <a href="/">Oldman AI Solutions</a>.</p>
         <p className="craft-footer__copy">&copy; 2026 The Craft</p>
       </footer>
     </>

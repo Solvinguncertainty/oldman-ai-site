@@ -51,7 +51,7 @@ export default async function ShopPage() {
           <div className="craft-nav__links">
             <a href="/shop">Shop</a>
             <a href="/shop/about">About</a>
-            <a href="/">Old Man AI</a>
+            <a href="/">Oldman AI Solutions</a>
           </div>
         </div>
       </nav>
@@ -60,7 +60,7 @@ export default async function ShopPage() {
       <header className="craft-hero">
         <img
           src="/craft-logo.svg"
-          alt="The Craft — a workshop of Old Man AI Solutions"
+          alt="The Craft — a workshop of Oldman AI Solutions"
           className="craft-hero__logo"
         />
         <p className="craft-hero__tagline">
@@ -88,7 +88,7 @@ export default async function ShopPage() {
             <h2 className="craft-empty__title">The shelves are being stocked.</h2>
             <p className="craft-empty__desc">
               The first run of products is being prepared. If you&rsquo;d like to
-              know when they&rsquo;re ready, drop a line from the Old Man AI
+              know when they&rsquo;re ready, drop a line from the Oldman AI
               Solutions site.
             </p>
           </div>
@@ -137,7 +137,7 @@ export default async function ShopPage() {
       {/* Footer */}
       <footer className="craft-footer">
         <div className="craft-footer__rule" />
-        <p>A workshop of <a href="/">Old Man AI Solutions</a>.</p>
+        <p>A workshop of <a href="/">Oldman AI Solutions</a>.</p>
         <p className="craft-footer__copy">&copy; 2026 The Craft</p>
       </footer>
     </>

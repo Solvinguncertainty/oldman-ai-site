@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About — The Craft",
   description:
-    "The Craft is the workshop side of Old Man AI Solutions. Small-batch 3D printed objects, designed and printed in Lethbridge, Alberta.",
+    "The Craft is the workshop side of Oldman AI Solutions. Small-batch 3D printed objects, designed and printed in Lethbridge, Alberta.",
 };
 
 export default function ShopAboutPage() {
@@ -18,7 +18,7 @@ export default function ShopAboutPage() {
           <div className="craft-nav__links">
             <a href="/shop">Shop</a>
             <a href="/shop/about">About</a>
-            <a href="/">Old Man AI</a>
+            <a href="/">Oldman AI Solutions</a>
           </div>
         </div>
       </nav>
@@ -38,7 +38,7 @@ export default function ShopAboutPage() {
 
         <div className="craft-about__prose">
           <p>
-            The Craft is the workshop side of Old Man AI Solutions. Where the
+            The Craft is the workshop side of Oldman AI Solutions. Where the
             parent firm builds custom AI solutions for businesses and teaches
             people to build their own, this is where we make real, physical
             things you can hold.
@@ -54,7 +54,7 @@ export default function ShopAboutPage() {
 
           <p>
             &ldquo;Master your craft&rdquo; is a line we keep coming back to at
-            Old Man AI. It&rsquo;s what we tell people we&rsquo;re training,
+            Oldman AI Solutions. It&rsquo;s what we tell people we&rsquo;re training,
             what we ask ourselves when we sit down to build, and what we aim for
             in every consulting engagement. This shop is that line, made into
             objects.
@@ -74,7 +74,7 @@ export default function ShopAboutPage() {
 
       <footer className="craft-footer">
         <div className="craft-footer__rule" />
-        <p>A workshop of <a href="/">Old Man AI Solutions</a>.</p>
+        <p>A workshop of <a href="/">Oldman AI Solutions</a>.</p>
         <p className="craft-footer__copy">&copy; 2026 The Craft</p>
       </footer>
     </>

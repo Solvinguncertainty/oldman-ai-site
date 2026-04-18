@@ -23,12 +23,20 @@ export default async function AdminHomePage() {
 
   // Dashboard counts
   const admin = createAdminClient();
-  const [{ count: productCount }, { count: unreadCount }] = await Promise.all([
+  const [
+    { count: productCount },
+    { count: unreadCount },
+    { count: paidOrderCount },
+  ] = await Promise.all([
     admin.from("products").select("*", { count: "exact", head: true }),
     admin
       .from("contact_submissions")
       .select("*", { count: "exact", head: true })
       .is("read_at", null),
+    admin
+      .from("orders")
+      .select("*", { count: "exact", head: true })
+      .eq("status", "paid"),
   ]);
 
   return (
@@ -110,10 +118,24 @@ export default async function AdminHomePage() {
         </div>
 
         <div className="admin-card">
-          <h2>Coming next</h2>
+          <h2>
+            <a
+              href="/admin/orders"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              Orders &rsaquo;
+            </a>
+          </h2>
           <p>
-            Cart + Stripe Checkout is the next big piece. After that: order
-            tracking, shipping, and real photography for the About section.
+            {paidOrderCount && paidOrderCount > 0
+              ? `${paidOrderCount} paid order${paidOrderCount === 1 ? "" : "s"} awaiting fulfillment. `
+              : "No orders awaiting fulfillment. "}
+            Stripe webhooks drop completed orders here with shipping details.
+          </p>
+          <p style={{ marginTop: "16px" }}>
+            <a href="/admin/orders" className="admin-btn">
+              View orders
+            </a>
           </p>
         </div>
       </main>
