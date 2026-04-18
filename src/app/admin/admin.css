@@ -1,0 +1,237 @@
+/* ============================================
+   Admin area styles — functional, on-brand
+   Reuses the global CSS variables from globals.css
+   ============================================ */
+
+.admin-shell {
+  min-height: 100vh;
+  background: var(--gray-100);
+  font-family: var(--font-body);
+  color: var(--charcoal);
+}
+
+.admin-topbar {
+  background: var(--navy);
+  color: var(--white);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.admin-topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-topbar__brand strong {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.admin-topbar__brand span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.admin-topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.9rem;
+}
+
+.admin-topbar__user {
+  color: rgba(255,255,255,0.75);
+}
+
+.admin-topbar__logout {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.admin-topbar__logout:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.admin-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+
+.admin-main h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.admin-main p.lead {
+  color: var(--gray-500);
+  font-size: 1rem;
+  margin-bottom: 32px;
+  max-width: 640px;
+}
+
+.admin-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+  margin-bottom: 24px;
+}
+
+.admin-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.admin-card p {
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+/* ---- Login page ---- */
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  padding: 24px;
+  font-family: var(--font-body);
+}
+
+.admin-login__card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 48px 40px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.admin-login__logo {
+  display: block;
+  max-width: 200px;
+  margin: 0 auto 32px;
+}
+
+.admin-login__title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.admin-login__subtitle {
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  margin-bottom: 32px;
+}
+
+.admin-login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-login__field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-login__field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--white);
+  color: var(--charcoal);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.admin-login__field input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(58,123,191,0.15);
+}
+
+.admin-login__submit {
+  margin-top: 8px;
+  padding: 14px;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.admin-login__submit:hover {
+  background: var(--charcoal);
+}
+
+.admin-login__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-login__error {
+  background: #FDECEA;
+  border: 1px solid #F5C2BD;
+  color: #B4332A;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.admin-login__footer {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 0.82rem;
+  color: var(--gray-500);
+}
+
+.admin-login__footer a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.admin-login__footer a:hover {
+  text-decoration: underline;
+}
