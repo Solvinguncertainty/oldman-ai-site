@@ -1,4 +1,9 @@
 
+  <!-- Top Logo Strip (white background, at very top) -->
+  <div class="top-logo">
+    <img src="/logo.svg" alt="Old Man AI Solutions" class="top-logo__img">
+  </div>
+
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav__container">
@@ -41,13 +46,6 @@
     </div>
   </header>
 
-  <!-- Logo Banner -->
-  <section class="logo-banner">
-    <div class="container">
-      <img src="/logo.svg" alt="Old Man AI Solutions" class="logo-banner__img">
-    </div>
-  </section>
-
   <!-- Values Bar -->
   <section class="values">
     <div class="values__container">
@@ -81,20 +79,6 @@
     </div>
   </section>
 
-  <!-- People First Section -->
-  <section class="people-first">
-    <div class="container">
-      <div class="people-first__content">
-        <h2 class="people-first__title">People First.<br>AI as the Tool.</h2>
-        <p class="people-first__desc">We help people and organizations solve real problems with AI — by building what you need, or teaching you to build it yourself. Human understanding comes first. Technology follows.</p>
-        <div class="people-first__actions">
-          <a href="#speaking" class="btn btn--primary">See How We Help</a>
-          <a href="#about" class="btn btn--outline">Meet Greg</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 2. Anchor Message Band -->
   <section class="anchor">
     <div class="container">
@@ -103,209 +87,161 @@
     </div>
   </section>
 
-  <!-- 3. Three-Prong Offering -->
-  <section class="offerings" id="offerings">
+  <!-- 3. Services (tabbed) — replaces Offerings + Audiences + Speaking + Training + Consulting -->
+  <section class="services" id="offerings">
     <div class="container">
-      <div class="offerings__grid">
-        <a href="#speaking" class="offering-card">
-          <div class="offering-card__number">01</div>
-          <h3 class="offering-card__title">Speaking</h3>
-          <p class="offering-card__desc">Practical, grounded talks on AI, human potential, and the future of work.</p>
-          <span class="offering-card__link">See Speaking &rarr;</span>
-        </a>
-        <a href="#training" class="offering-card">
-          <div class="offering-card__number">02</div>
-          <h3 class="offering-card__title">Training</h3>
-          <p class="offering-card__desc">Learn to build with AI. From first principles to shipping your own tools.</p>
-          <span class="offering-card__link">See Training &rarr;</span>
-        </a>
-        <a href="#consulting" class="offering-card">
-          <div class="offering-card__number">03</div>
-          <h3 class="offering-card__title">Consulting</h3>
-          <p class="offering-card__desc">Deep business assessment, then we build what you actually need. Not a deck — a working solution.</p>
-          <span class="offering-card__link">See Consulting &rarr;</span>
-        </a>
-        <a href="#products" class="offering-card">
-          <div class="offering-card__number">04</div>
-          <h3 class="offering-card__title">Building</h3>
-          <p class="offering-card__desc">Custom-built AI solutions and applications. Internal tools, automations, and apps designed for your exact problem. Real software that ships.</p>
-          <span class="offering-card__link">See What We've Built &rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
+      <p class="section-label">Services</p>
+      <h2 class="services__intro-title">Four ways we work together.</h2>
+      <p class="services__intro-desc">Click a service to see how it works. Built for businesses, enterprises, schools, and individuals who want to master AI, not just adopt it.</p>
 
-  <!-- 4. Who This Is For -->
-  <section class="audiences">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">Who This Is For</p>
+      <div class="services__tabs" role="tablist">
+        <button type="button" class="services__tab services__tab--active" data-service-tab="speaking" role="tab" aria-selected="true">
+          <span class="services__tab-num">01</span>
+          <span class="services__tab-title">Speaking</span>
+          <span class="services__tab-desc">Practical, grounded talks on AI.</span>
+        </button>
+        <button type="button" class="services__tab" data-service-tab="training" role="tab" aria-selected="false">
+          <span class="services__tab-num">02</span>
+          <span class="services__tab-title">Training</span>
+          <span class="services__tab-desc">Learn to build with AI.</span>
+        </button>
+        <button type="button" class="services__tab" data-service-tab="consulting" role="tab" aria-selected="false">
+          <span class="services__tab-num">03</span>
+          <span class="services__tab-title">Consulting</span>
+          <span class="services__tab-desc">Assess, then build what you need.</span>
+        </button>
+        <button type="button" class="services__tab" data-service-tab="building" role="tab" aria-selected="false">
+          <span class="services__tab-num">04</span>
+          <span class="services__tab-title">Building</span>
+          <span class="services__tab-desc">Custom AI solutions, shipped.</span>
+        </button>
       </div>
-      <div class="audiences__grid">
-        <div class="audience-item">
-          <h4>Businesses &amp; Entrepreneurs</h4>
-          <p>You know AI matters. You need someone to help you use it well.</p>
-        </div>
-        <div class="audience-item">
-          <h4>Enterprise &amp; Institutions</h4>
-          <p>Government, institutions, regulated environments. Serious work for serious organizations.</p>
-        </div>
-        <div class="audience-item">
-          <h4>Schools &amp; Youth</h4>
-          <p>Preparing the next generation to think, build, and thrive in the ideas economy.</p>
-        </div>
-        <div class="audience-item">
-          <h4>Individuals</h4>
-          <p>People who want to master AI as a personal tool for their craft and life.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- 6. Speaking Section -->
-  <section class="speaking" id="speaking">
-    <div class="container">
-      <p class="section-label">Speaking</p>
-      <div class="speaking__grid">
-        <div class="speaking__content">
-          <h2 class="speaking__title">Talks that change how people think about AI.</h2>
-          <p class="speaking__text">Greg delivers keynotes, workshops, and sessions that make AI practical and human. No jargon. No fear-mongering. Just clear thinking about what AI means for your people, your work, and your future.</p>
-          <div class="speaking__tracks">
-            <div class="speaking__track">
-              <h4>For organizations, conferences, and leadership</h4>
+      <div class="services__panels">
+        <!-- SPEAKING panel -->
+        <div class="services__panel services__panel--active" id="speaking" data-service-panel="speaking" role="tabpanel">
+          <h3 class="services__panel-title">Talks that change how people think about AI.</h3>
+          <p class="services__panel-lead">Keynotes, workshops, and sessions that make AI practical and human. No jargon. No fear-mongering. Just clear thinking about what AI means for your people, your work, and your future.</p>
+          <div class="services__split">
+            <div class="services__split-col">
+              <h4>For organizations, conferences, leadership</h4>
               <p>Practical AI adoption, future-readiness, and human potential in the age of AI.</p>
             </div>
-            <div class="speaking__track">
-              <h4>For youth, schools, and educational events</h4>
+            <div class="services__split-col">
+              <h4>For youth, schools, educational events</h4>
               <p>Entrepreneurship, purpose, AI literacy, and finding direction in a shifting world.</p>
             </div>
           </div>
+          <details class="services__more">
+            <summary>View speaking topics</summary>
+            <div class="services__topics">
+              <div class="talk-card"><strong>AI Demystification</strong><p>What AI actually is, what it isn't, what it means for you.</p></div>
+              <div class="talk-card"><strong>AI Safety &amp; Responsible Use</strong><p>Navigating risk, ethics, and trust in the age of AI.</p></div>
+              <div class="talk-card"><strong>Parental Guidance for AI</strong><p>Helping families understand and manage AI in their children's lives.</p></div>
+              <div class="talk-card"><strong>Classroom Integration</strong><p>Practical approaches to AI in education — for teachers, by a builder.</p></div>
+              <div class="talk-card"><strong>Business Adoption at Every Level</strong><p>From solopreneurs to enterprise — adopting AI that actually fits.</p></div>
+              <div class="talk-card"><strong>Mastering Your Craft with AI</strong><p>Using AI as a lever to do what you do best, better.</p></div>
+              <div class="talk-card"><strong>The Ideas Economy</strong><p>Entrepreneurship when anyone can build anything.</p></div>
+              <div class="talk-card"><strong>The Next Best Step</strong><p>Finding direction and momentum in a shifting world.</p></div>
+            </div>
+          </details>
+          <a href="#contact" class="btn btn--primary services__panel-cta">Book a Talk</a>
         </div>
-        <div class="speaking__talks">
-          <h4 class="speaking__talks-label">Speaking Topics</h4>
-          <div class="talk-card">
-            <strong>AI Demystification</strong>
-            <p>What AI actually is, what it isn't, and what it means for you.</p>
-          </div>
-          <div class="talk-card">
-            <strong>AI Safety &amp; Responsible Use</strong>
-            <p>Navigating risk, ethics, and trust in the age of AI.</p>
-          </div>
-          <div class="talk-card">
-            <strong>Parental Guidance for AI</strong>
-            <p>Helping families understand and manage AI in their children's lives.</p>
-          </div>
-          <div class="talk-card">
-            <strong>Classroom Integration</strong>
-            <p>Practical approaches to AI in education — for teachers, by a builder.</p>
-          </div>
-          <div class="talk-card">
-            <strong>Business Adoption at Every Level</strong>
-            <p>From solopreneurs to enterprise — adopting AI that actually fits.</p>
-          </div>
-          <div class="talk-card">
-            <strong>Mastering Your Craft with AI</strong>
-            <p>Using AI as a lever to do what you do best, better.</p>
-          </div>
-          <div class="talk-card">
-            <strong>The Ideas Economy</strong>
-            <p>Entrepreneurship when anyone can build anything.</p>
-          </div>
-          <div class="talk-card">
-            <strong>The Next Best Step</strong>
-            <p>Finding direction and momentum in a shifting world.</p>
-          </div>
-        </div>
-      </div>
-      <a href="#contact" class="btn btn--primary" style="margin-top:40px;">Book a Talk</a>
-    </div>
-  </section>
 
-  <!-- 7. Training Section -->
-  <section class="training" id="training">
-    <div class="container">
-      <p class="section-label">Training</p>
-      <h2 class="training__title">Learn to build your own AI tools.</h2>
-      <p class="training__intro">Most AI training is a waste of time. People sit through slides, nod, and go back to doing things the old way. Ours is different. We teach you to build — real tools, real workflows, real solutions. The goal isn't for you to need me forever. It's for you to build what you need, yourself.</p>
-      <div class="training__focus-areas">
-        <span class="training__tag">Team Enablement</span>
-        <span class="training__tag">Operations</span>
-        <span class="training__tag">Leadership</span>
-        <span class="training__tag">AI Literacy</span>
-        <span class="training__tag">Workflow Automation</span>
-        <span class="training__tag">Responsible AI Use</span>
-      </div>
-      <div class="training__offerings">
-        <div class="training__offering-card">
-          <h4>Build Your First AI Workflow</h4>
-          <p>Half-day intro sessions. Walk in curious, leave with a working AI tool you built yourself.</p>
+        <!-- TRAINING panel -->
+        <div class="services__panel" id="training" data-service-panel="training" role="tabpanel">
+          <h3 class="services__panel-title">Learn to build your own AI tools.</h3>
+          <p class="services__panel-lead">Most AI training is a waste of time. Ours is different. We teach you to build — real tools, real workflows, real solutions. The goal isn't for you to need us forever. It's for you to build what you need, yourself.</p>
+          <div class="services__tag-row">
+            <span class="services__tag">Team Enablement</span>
+            <span class="services__tag">Operations</span>
+            <span class="services__tag">Leadership</span>
+            <span class="services__tag">AI Literacy</span>
+            <span class="services__tag">Workflow Automation</span>
+            <span class="services__tag">Responsible AI Use</span>
+          </div>
+          <div class="services__cards">
+            <div class="services__card">
+              <h4>Build Your First AI Workflow</h4>
+              <p>Half-day intro sessions. Walk in curious, leave with a working AI tool you built yourself.</p>
+            </div>
+            <div class="services__card">
+              <h4>Team Build Days</h4>
+              <p>Full-day workshops where your team builds real solutions for your actual business — not hypotheticals.</p>
+            </div>
+            <div class="services__card">
+              <h4>The Builder Path</h4>
+              <p>Multi-session mentorship. You finish as an independent AI builder — able to design, build, and ship on your own.</p>
+            </div>
+          </div>
+          <p class="services__note">Available for corporate, public sector, and private sector environments.</p>
+          <a href="#contact" class="btn btn--primary services__panel-cta">Inquire About Training</a>
         </div>
-        <div class="training__offering-card">
-          <h4>Team Build Days</h4>
-          <p>Full-day workshops where your team builds real solutions for your actual business — not hypotheticals.</p>
-        </div>
-        <div class="training__offering-card">
-          <h4>The Builder Path</h4>
-          <p>Multi-session mentorship. You finish as an independent AI builder — able to design, build, and ship on your own.</p>
-        </div>
-      </div>
-      <p class="training__institutional">Available for corporate, public sector, and private sector environments. We work with organizations of every size.</p>
-      <a href="#contact" class="btn btn--primary" style="margin-top:32px;">Inquire About Training</a>
-    </div>
-  </section>
 
-  <!-- 8. Consulting Section -->
-  <section class="consulting" id="consulting">
-    <div class="container">
-      <p class="section-label">Consulting</p>
-      <h2 class="consulting__title">Deep assessment. Real solutions. Built, not just recommended.</h2>
-      <p class="consulting__intro">Most consultants hand you a deck and a bill. I hand you a working solution. Every engagement starts with a full McKinsey-style business assessment — every process, every bottleneck, every opportunity. Then I build what your business actually needs.</p>
-      <div class="consulting__types">
-        <div class="consult-card">
-          <h4>Full Business Assessment</h4>
-          <p>Rigorous diagnostic in the McKinsey tradition. Operations, workflows, team dynamics, tech stack — the full picture of where you are and where you could be.</p>
+        <!-- CONSULTING panel -->
+        <div class="services__panel" id="consulting" data-service-panel="consulting" role="tabpanel">
+          <h3 class="services__panel-title">Deep assessment. Real solutions. Built, not just recommended.</h3>
+          <p class="services__panel-lead">Most consultants hand you a deck and a bill. I hand you a working solution. Every engagement starts with a full McKinsey-style business assessment — every process, every bottleneck, every opportunity. Then I build what your business actually needs.</p>
+          <div class="services__cards">
+            <div class="services__card">
+              <h4>Full Business Assessment</h4>
+              <p>Rigorous diagnostic in the McKinsey tradition. Operations, workflows, team dynamics, tech stack — the full picture.</p>
+            </div>
+            <div class="services__card">
+              <h4>Custom Solution Build</h4>
+              <p>Based on the assessment, we build exactly what your business needs. Automations, internal tools, AI-powered workflows.</p>
+            </div>
+            <div class="services__card">
+              <h4>Implementation &amp; Handoff</h4>
+              <p>We deploy it, train your team, and stay with you until it's working. Then we step back. You own what we built.</p>
+            </div>
+          </div>
+          <details class="services__more">
+            <summary>How we work — four steps</summary>
+            <div class="services__process">
+              <div class="process-step"><span class="process-step__num">1</span><strong>Assess</strong><p>Understand the actual problem.</p></div>
+              <div class="process-step__arrow">&rarr;</div>
+              <div class="process-step"><span class="process-step__num">2</span><strong>Triage</strong><p>Identify what matters most.</p></div>
+              <div class="process-step__arrow">&rarr;</div>
+              <div class="process-step"><span class="process-step__num">3</span><strong>Design</strong><p>Build the lightest effective solution.</p></div>
+              <div class="process-step__arrow">&rarr;</div>
+              <div class="process-step"><span class="process-step__num">4</span><strong>Implement</strong><p>Ship, train, and support.</p></div>
+            </div>
+          </details>
+          <p class="services__note">Experienced in regulated and high-trust environments, including public-sector and institutional contexts.</p>
+          <a href="#contact" class="btn btn--primary services__panel-cta">Start a Conversation</a>
         </div>
-        <div class="consult-card">
-          <h4>Custom Solution Build</h4>
-          <p>Based on the assessment, we build exactly what your business needs. Automations, internal tools, AI-powered workflows — real things that ship.</p>
-        </div>
-        <div class="consult-card">
-          <h4>Implementation &amp; Handoff</h4>
-          <p>We deploy it, train your team, and stay with you until it's working. Then we step back. You own what we built together.</p>
+
+        <!-- BUILDING panel -->
+        <div class="services__panel" id="building" data-service-panel="building" role="tabpanel">
+          <h3 class="services__panel-title">Custom AI solutions, engineered for your problem.</h3>
+          <p class="services__panel-lead">When the right tool doesn&rsquo;t exist off the shelf, we build it. Internal tools, automations, apps, and AI-powered workflows — real software designed for your exact business, team, or craft.</p>
+          <div class="services__cards">
+            <div class="services__card">
+              <h4>Internal Tools</h4>
+              <p>Custom dashboards, admin apps, and workflow systems built specifically for how your team actually works.</p>
+            </div>
+            <div class="services__card">
+              <h4>Automations &amp; Workflows</h4>
+              <p>AI-powered automations that replace repetitive work — quoting, scheduling, admin, communication.</p>
+            </div>
+            <div class="services__card">
+              <h4>Customer-Facing Apps</h4>
+              <p>Full applications &mdash; web, mobile, or both &mdash; designed around the problem your customers actually have.</p>
+            </div>
+          </div>
+          <p class="services__note">See <a href="#products" class="text-link">what we&rsquo;ve already built &rarr;</a> for examples.</p>
+          <a href="#contact" class="btn btn--primary services__panel-cta">Build Something Real</a>
         </div>
       </div>
-      <div class="consulting__process">
-        <h4 class="consulting__process-label">How We Work</h4>
-        <div class="consulting__process-steps">
-          <div class="process-step">
-            <span class="process-step__num">1</span>
-            <strong>Assess</strong>
-            <p>Understand the actual problem.</p>
-          </div>
-          <div class="process-step__arrow">&rarr;</div>
-          <div class="process-step">
-            <span class="process-step__num">2</span>
-            <strong>Triage</strong>
-            <p>Identify what matters most.</p>
-          </div>
-          <div class="process-step__arrow">&rarr;</div>
-          <div class="process-step">
-            <span class="process-step__num">3</span>
-            <strong>Design</strong>
-            <p>Build the lightest effective solution.</p>
-          </div>
-          <div class="process-step__arrow">&rarr;</div>
-          <div class="process-step">
-            <span class="process-step__num">4</span>
-            <strong>Implement</strong>
-            <p>Ship, train, and support.</p>
-          </div>
-        </div>
+
+      <div class="services__audiences">
+        <span class="services__audiences-label">Who this is for</span>
+        <span class="services__audience-chip">Businesses &amp; Entrepreneurs</span>
+        <span class="services__audience-chip">Enterprise &amp; Institutions</span>
+        <span class="services__audience-chip">Schools &amp; Youth</span>
+        <span class="services__audience-chip">Individuals</span>
       </div>
-      <div class="consulting__institutional">
-        <p>Experienced working within regulated and high-trust environments including public-sector and institutional contexts.</p>
-      </div>
-      <a href="#contact" class="btn btn--primary" style="margin-top:32px;">Start a Conversation</a>
     </div>
   </section>
 
@@ -406,8 +342,11 @@
           <h2 class="about__title">Grounded in reality.</h2>
           <p class="about__lead">I've spent my career in high-stakes environments where clarity matters and the wrong call has real consequences. That background taught me one thing above all else: deal with what matters most, first. Everything else can wait.</p>
           <p class="about__text">That mindset is the foundation of this company. I help people and organizations understand what's real, figure out what matters, and use the right tools to solve the real problems.</p>
-          <p class="about__text">AI is powerful. But it's a tool. A lever, not a replacement. The people holding it are what matter. That's why every engagement starts with the human problem, not the technology.</p>
-          <p class="about__text">Whether I'm on stage, in a boardroom, or building a custom system, the question is always the same: what's the real problem, and what's the next best step?</p>
+          <details class="about__more">
+            <summary>Read more about how we think</summary>
+            <p class="about__text">AI is powerful. But it's a tool. A lever, not a replacement. The people holding it are what matter. That's why every engagement starts with the human problem, not the technology.</p>
+            <p class="about__text">Whether I'm on stage, in a boardroom, or building a custom system, the question is always the same: what's the real problem, and what's the next best step?</p>
+          </details>
           <div class="about__beliefs">
             <h4>What I Believe</h4>
             <ul>
@@ -475,20 +414,6 @@
     </div>
   </section>
 
-  <!-- 11. Credibility Strip (placeholder) -->
-  <section class="credibility">
-    <div class="container">
-      <p class="credibility__label">Spoken at &amp; Worked with</p>
-      <div class="credibility__logos">
-        <span class="credibility__placeholder"></span>
-        <span class="credibility__placeholder"></span>
-        <span class="credibility__placeholder"></span>
-        <span class="credibility__placeholder"></span>
-        <span class="credibility__placeholder"></span>
-      </div>
-    </div>
-  </section>
-
   <!-- 12. Field Notes Signup -->
   <section class="field-notes" id="field-notes">
     <div class="container">
@@ -499,18 +424,6 @@
           <input type="email" name="email_address" placeholder="Your email" required class="field-notes__input">
           <button type="submit" class="btn btn--primary">Subscribe</button>
         </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- 13. Final CTA -->
-  <section class="final-cta">
-    <div class="container">
-      <h2 class="final-cta__title">Bring the future into the present.</h2>
-      <div class="final-cta__actions">
-        <a href="#contact" class="btn btn--primary">Book a Talk</a>
-        <a href="#contact" class="btn btn--ghost">Inquire About Training</a>
-        <a href="#contact" class="btn btn--ghost">Start a Conversation</a>
       </div>
     </div>
   </section>

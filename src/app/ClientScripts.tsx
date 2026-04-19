@@ -167,6 +167,45 @@ export default function ClientScripts() {
       productHandlers.push({ el: card, onClick, toggle: toggle ?? undefined, onToggleClick });
     });
 
+    // --- Services tabs (Speaking / Training / Consulting / Building) ---
+    const serviceTabs = Array.from(
+      document.querySelectorAll<HTMLButtonElement>(".services__tab")
+    );
+    const servicePanels = Array.from(
+      document.querySelectorAll<HTMLElement>(".services__panel")
+    );
+    const serviceTabHandlers: { el: HTMLButtonElement; handler: () => void }[] =
+      [];
+    const activateService = (name: string) => {
+      serviceTabs.forEach((t) => {
+        const active = t.dataset.serviceTab === name;
+        t.classList.toggle("services__tab--active", active);
+        t.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      servicePanels.forEach((p) => {
+        const active = p.dataset.servicePanel === name;
+        p.classList.toggle("services__panel--active", active);
+      });
+    };
+    serviceTabs.forEach((tab) => {
+      const handler = () => {
+        const name = tab.dataset.serviceTab;
+        if (name) activateService(name);
+      };
+      tab.addEventListener("click", handler);
+      serviceTabHandlers.push({ el: tab, handler });
+    });
+    // If URL hash matches a panel id (e.g. legacy #speaking links), open that tab
+    const hashToPanel = (hash: string) => {
+      const h = hash.replace("#", "");
+      if (["speaking", "training", "consulting", "building"].includes(h)) {
+        activateService(h);
+      }
+    };
+    if (window.location.hash) hashToPanel(window.location.hash);
+    const onHashChange = () => hashToPanel(window.location.hash);
+    window.addEventListener("hashchange", onHashChange);
+
     // --- Scroll-triggered fade-in animations ---
     const observerOptions: IntersectionObserverInit = {
       threshold: 0.1,
@@ -184,9 +223,8 @@ export default function ClientScripts() {
 
     const animatables = Array.from(
       document.querySelectorAll<HTMLElement>(
-        ".values__item, .offering-card, .audience-item, .method-step, " +
-          ".speaking__track, .talk-card, .training__offering-card, " +
-          ".consult-card, .process-step, .product-card, " +
+        ".values__item, .services__tab, .talk-card, .services__card, " +
+          ".process-step, .product-card, " +
           ".listen__card, .about__beliefs, .contact__info-item"
       )
     );
@@ -231,6 +269,10 @@ export default function ClientScripts() {
         el.removeEventListener("click", onClick);
         if (toggle && onToggleClick) toggle.removeEventListener("click", onToggleClick);
       });
+      serviceTabHandlers.forEach(({ el, handler }) =>
+        el.removeEventListener("click", handler)
+      );
+      window.removeEventListener("hashchange", onHashChange);
       observer.disconnect();
     };
   }, []);
