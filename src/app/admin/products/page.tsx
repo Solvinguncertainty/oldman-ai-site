@@ -11,7 +11,7 @@ import {
 } from "@/lib/products/types";
 
 export const metadata: Metadata = {
-  title: "Products — Admin — Old Man AI Solutions",
+  title: "Products — Admin — Oldman AI Solutions",
   robots: { index: false, follow: false },
 };
 
@@ -56,7 +56,7 @@ export default async function AdminProductsPage() {
     <div className="admin-shell">
       <header className="admin-topbar">
         <div className="admin-topbar__brand">
-          <strong>Old Man AI Solutions</strong>
+          <strong>Oldman AI Solutions</strong>
           <span>Admin</span>
         </div>
         <div className="admin-topbar__actions">

@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard — Old Man AI Solutions",
+  title: "Admin Dashboard — Oldman AI Solutions",
   robots: { index: false, follow: false },
 };
 
@@ -57,7 +57,7 @@ export default async function AdminHomePage() {
     <div className="admin-shell">
       <header className="admin-topbar">
         <div className="admin-topbar__brand">
-          <strong>Old Man AI Solutions</strong>
+          <strong>Oldman AI Solutions</strong>
           <span>Admin</span>
         </div>
         <div className="admin-topbar__actions">

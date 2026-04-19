@@ -58,7 +58,7 @@ export default async function EditProductPage({ params }: Props) {
     <div className="admin-shell">
       <header className="admin-topbar">
         <div className="admin-topbar__brand">
-          <strong>Old Man AI Solutions</strong>
+          <strong>Oldman AI Solutions</strong>
           <span>Admin</span>
         </div>
         <div className="admin-topbar__actions">

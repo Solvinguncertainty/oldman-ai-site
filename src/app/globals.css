@@ -1,5 +1,5 @@
 /* ============================================
-   Old Man AI Solutions — Styles
+   Oldman AI Solutions — Styles
    Brand Colors:
    - Dark Navy:     #2D3E50
    - Steel Blue:    #3A7BBF
@@ -248,9 +248,21 @@ ul { list-style: none; }
   display: block;
 }
 
+.top-logo__tagline {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 14px;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .top-logo { padding: calc(var(--nav-height) + 16px) 24px 18px; }
   .top-logo__img { max-width: 260px; }
+  .top-logo__tagline { font-size: 0.72rem; letter-spacing: 2px; margin-top: 10px; }
 }
 
 /* ---- Hero ---- */

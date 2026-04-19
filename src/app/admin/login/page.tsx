@@ -3,7 +3,7 @@ import "../admin.css";
 import LoginForm from "./LoginForm";
 
 export const metadata: Metadata = {
-  title: "Admin Sign in — Old Man AI Solutions",
+  title: "Admin Sign in — Oldman AI Solutions",
   robots: { index: false, follow: false },
 };
 
@@ -21,7 +21,7 @@ export default async function AdminLoginPage({ searchParams }: Props) {
       <div className="admin-login__card">
         <img
           src="/logo.svg"
-          alt="Old Man AI Solutions"
+          alt="Oldman AI Solutions"
           className="admin-login__logo"
         />
         <h1 className="admin-login__title">Admin Sign in</h1>
