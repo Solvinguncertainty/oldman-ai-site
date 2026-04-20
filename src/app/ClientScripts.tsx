@@ -148,38 +148,74 @@ export default function ClientScripts() {
     };
     fieldNotesForm?.addEventListener("submit", onFieldNotesSubmit);
 
-    // --- Expandable product cards (accordion — only one open at a time) ---
-    const productCards = Array.from(
-      document.querySelectorAll<HTMLElement>(".product-card[data-expandable]")
+    // --- Product tiles + detail panel below the grid ---
+    const productTiles = Array.from(
+      document.querySelectorAll<HTMLButtonElement>("[data-product-tile]")
     );
-    const productHandlers: { el: HTMLElement; onClick: () => void; toggle?: HTMLElement; onToggleClick?: (e: Event) => void }[] = [];
+    const productDetailPanel = document.getElementById(
+      "productDetailPanel"
+    ) as HTMLElement | null;
+    const productDetailClose = document.getElementById(
+      "productDetailClose"
+    ) as HTMLElement | null;
+    const productDetails = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-product-detail]")
+    );
+    const productHandlers: { el: HTMLElement; handler: () => void }[] = [];
 
-    const expandCard = (card: HTMLElement) => {
-      const wasExpanded = card.classList.contains("expanded");
-      // Collapse every card first
-      productCards.forEach((c) => c.classList.remove("expanded"));
-      if (!wasExpanded) {
-        card.classList.add("expanded");
-        // Scroll the expanded card into view after the transition starts
+    const hidePanel = () => {
+      if (productDetailPanel) {
+        productDetailPanel.hidden = true;
+      }
+      productDetails.forEach((d) => (d.hidden = true));
+      productTiles.forEach((t) => {
+        t.classList.remove("is-active");
+        t.setAttribute("aria-expanded", "false");
+      });
+    };
+
+    const showDetailFor = (tile: HTMLButtonElement) => {
+      const key = tile.dataset.productTile;
+      if (!key) return;
+
+      const alreadyActive = tile.classList.contains("is-active");
+      if (alreadyActive) {
+        hidePanel();
+        return;
+      }
+
+      // Switch active tile
+      productTiles.forEach((t) => {
+        t.classList.remove("is-active");
+        t.setAttribute("aria-expanded", "false");
+      });
+      tile.classList.add("is-active");
+      tile.setAttribute("aria-expanded", "true");
+
+      // Show the matching detail
+      productDetails.forEach((d) => {
+        d.hidden = d.dataset.productDetail !== key;
+      });
+      if (productDetailPanel) {
+        productDetailPanel.hidden = false;
+        // Scroll the panel into view after it renders
         setTimeout(() => {
-          card.scrollIntoView({ behavior: "smooth", block: "start" });
+          productDetailPanel.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+          });
         }, 50);
       }
     };
 
-    productCards.forEach((card) => {
-      const toggle = card.querySelector(".product-card__toggle") as HTMLElement | null;
-      const onToggleClick = (e: Event) => {
-        e.stopPropagation();
-        expandCard(card);
-      };
-      const onClick = () => {
-        expandCard(card);
-      };
-      toggle?.addEventListener("click", onToggleClick);
-      card.addEventListener("click", onClick);
-      productHandlers.push({ el: card, onClick, toggle: toggle ?? undefined, onToggleClick });
+    productTiles.forEach((tile) => {
+      const handler = () => showDetailFor(tile);
+      tile.addEventListener("click", handler);
+      productHandlers.push({ el: tile, handler });
     });
+
+    const onCloseClick = () => hidePanel();
+    productDetailClose?.addEventListener("click", onCloseClick);
 
     // --- Services tabs (Speaking / Training / Consulting / Building) ---
     const serviceTabs = Array.from(
@@ -279,10 +315,10 @@ export default function ClientScripts() {
       );
       contactForm?.removeEventListener("submit", onContactSubmit);
       fieldNotesForm?.removeEventListener("submit", onFieldNotesSubmit);
-      productHandlers.forEach(({ el, onClick, toggle, onToggleClick }) => {
-        el.removeEventListener("click", onClick);
-        if (toggle && onToggleClick) toggle.removeEventListener("click", onToggleClick);
+      productHandlers.forEach(({ el, handler }) => {
+        el.removeEventListener("click", handler);
       });
+      productDetailClose?.removeEventListener("click", onCloseClick);
       serviceTabHandlers.forEach(({ el, handler }) =>
         el.removeEventListener("click", handler)
       );
