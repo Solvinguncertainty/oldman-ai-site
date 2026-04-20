@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="OneForty — Live to 100. Feel like 40.">
+  <defs>
+    <linearGradient id="of-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#0b1220" />
+      <stop offset="55%"  stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <radialGradient id="of-glow-teal" cx="20%" cy="30%" r="55%">
+      <stop offset="0%"   stop-color="#2dd4bf" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="of-glow-orange" cx="85%" cy="80%" r="55%">
+      <stop offset="0%"   stop-color="#f97316" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="of-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+
+    <linearGradient id="of-headline" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+
+    <pattern id="of-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#475569" fill-opacity="0.10" />
+    </pattern>
+
+    <style>
+      .of-sans   { font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .of-mono   { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .of-white  { fill: #ffffff; }
+      .of-slate  { fill: #94a3b8; }
+      .of-teal   { fill: #2dd4bf; }
+      .of-orange { fill: #f97316; }
+    </style>
+  </defs>
+
+  <!-- Background layers -->
+  <rect width="1200" height="630" fill="url(#of-bg)" />
+  <rect width="1200" height="630" fill="url(#of-dots)" />
+  <rect width="1200" height="630" fill="url(#of-glow-teal)" />
+  <rect width="1200" height="630" fill="url(#of-glow-orange)" />
+
+  <!-- Card frame -->
+  <rect x="40" y="40" width="1120" height="550" rx="28" fill="none"
+        stroke="#334155" stroke-width="1" opacity="0.7" />
+
+  <!-- ── Right: Longevity Ring ─────────────────────────────────── -->
+  <g transform="translate(900 315)">
+    <!-- Outer halo -->
+    <circle r="200" fill="#2dd4bf" fill-opacity="0.04" />
+    <circle r="170" fill="#2dd4bf" fill-opacity="0.05" />
+
+    <!-- Track -->
+    <circle r="140" fill="none" stroke="#1e293b" stroke-width="20" />
+
+    <!-- Progress ring (full sweep) -->
+    <circle r="140" fill="none"
+            stroke="url(#of-ring)" stroke-width="20"
+            stroke-linecap="round"
+            stroke-dasharray="824 36"
+            transform="rotate(-90)" />
+
+    <!-- Center label -->
+    <text class="of-sans of-white" text-anchor="middle" y="-6"
+          font-size="120" font-weight="800" letter-spacing="-4">100</text>
+    <text class="of-sans of-teal" text-anchor="middle" y="40"
+          font-size="18" font-weight="700" letter-spacing="6">LONGEVITY</text>
+
+    <!-- Orbit dots -->
+    <g opacity="0.85">
+      <circle cx="0"    cy="-140" r="6" fill="#2dd4bf" />
+      <circle cx="140"  cy="0"    r="6" fill="#84cc16" />
+      <circle cx="0"    cy="140"  r="6" fill="#f59e0b" />
+      <circle cx="-140" cy="0"    r="6" fill="#f97316" />
+    </g>
+  </g>
+
+  <!-- ── Left: Wordmark + Headline + Tagline ───────────────────── -->
+  <g transform="translate(95 175)">
+
+    <!-- Eyebrow / wordmark -->
+    <g>
+      <rect x="0" y="-22" width="32" height="32" rx="8" fill="url(#of-ring)" />
+      <text class="of-sans of-white" x="46" y="3"
+            font-size="22" font-weight="800" letter-spacing="2">ONEFORTY</text>
+      <text class="of-sans of-slate" x="46" y="26"
+            font-size="13" font-weight="500" letter-spacing="3">AI LONGEVITY PLATFORM</text>
+    </g>
+
+    <!-- Headline -->
+    <text class="of-sans" x="0" y="115"
+          font-size="78" font-weight="800" letter-spacing="-2"
+          fill="url(#of-headline)">Live to 100.</text>
+    <text class="of-sans of-orange" x="0" y="195"
+          font-size="78" font-weight="800" letter-spacing="-2"
+          font-style="italic">Feel like 40.</text>
+
+    <!-- Sub-copy -->
+    <text class="of-sans of-slate" x="0" y="245"
+          font-size="20" font-weight="500" opacity="0.85">
+      Workouts. Sleep. Nutrition. Biomarkers. One AI plan, every day.
+    </text>
+
+    <!-- Capability chips -->
+    <g transform="translate(0 285)" class="of-sans">
+      <g>
+        <rect x="0" y="0" width="118" height="34" rx="17"
+              fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <circle cx="18" cy="17" r="4" fill="#2dd4bf" />
+        <text class="of-white" x="32" y="22" font-size="13" font-weight="600">Readiness</text>
+      </g>
+      <g transform="translate(130 0)">
+        <rect x="0" y="0" width="118" height="34" rx="17"
+              fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <circle cx="18" cy="17" r="4" fill="#84cc16" />
+        <text class="of-white" x="32" y="22" font-size="13" font-weight="600">Nutrition</text>
+      </g>
+      <g transform="translate(260 0)">
+        <rect x="0" y="0" width="128" height="34" rx="17"
+              fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <circle cx="18" cy="17" r="4" fill="#f59e0b" />
+        <text class="of-white" x="32" y="22" font-size="13" font-weight="600">Biomarkers</text>
+      </g>
+      <g transform="translate(400 0)">
+        <rect x="0" y="0" width="118" height="34" rx="17"
+              fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <circle cx="18" cy="17" r="4" fill="#f97316" />
+        <text class="of-white" x="32" y="22" font-size="13" font-weight="600">Workouts</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom rail -->
+  <g transform="translate(0 600)">
+    <rect width="1200" height="2" y="-10" fill="url(#of-ring)" opacity="0.45" />
+    <text class="of-mono of-slate" x="100" y="14" font-size="13" letter-spacing="3" opacity="0.8">
+      oneforty.app  ·  AI-NATIVE  ·  LONGEVITY  ·  PERFORMANCE
+    </text>
+  </g>
+</svg>
