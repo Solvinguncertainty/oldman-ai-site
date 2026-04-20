@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F0D0A"/>
+      <stop offset="50%" stop-color="#1A1510"/>
+      <stop offset="100%" stop-color="#12100C"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#D4A04A" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#D4A04A" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#D4A04A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Concentric circles mark -->
+  <g transform="translate(600 230)">
+    <circle r="120" fill="none" stroke="#D4A04A" stroke-opacity="0.18" stroke-width="1.5"/>
+    <circle r="85" fill="none" stroke="#D4A04A" stroke-opacity="0.32" stroke-width="1.5"/>
+    <circle r="52" fill="none" stroke="#D4A04A" stroke-opacity="0.55" stroke-width="1.5"/>
+    <circle r="22" fill="#D4A04A"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="600" y="430" text-anchor="middle"
+        font-family="'Playfair Display', Georgia, serif"
+        font-weight="600" font-size="82"
+        fill="#F4EFE6" letter-spacing="-1">
+    Innermost
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="478" text-anchor="middle"
+        font-family="'DM Sans', Helvetica, Arial, sans-serif"
+        font-size="22" fill="#D4A04A" letter-spacing="3" font-weight="500">
+    THE NEXT BEST STEP STARTS WITHIN
+  </text>
+
+  <!-- Under-tagline -->
+  <text x="600" y="520" text-anchor="middle"
+        font-family="'DM Sans', Helvetica, Arial, sans-serif"
+        font-size="18" fill="#ffffff" fill-opacity="0.45" letter-spacing="1">
+    Orientation, not motivation. Triage over transcendence.
+  </text>
+
+  <!-- Framework strip -->
+  <g transform="translate(600 580)" font-family="'DM Sans', Helvetica, Arial, sans-serif"
+     font-size="13" fill="#ffffff" fill-opacity="0.35" letter-spacing="3">
+    <text text-anchor="middle">ASSESS  →  STABILIZE  →  ORIENT  →  ACTIVATE</text>
+  </g>
+
+  <!-- Byline -->
+  <text x="600" y="612" text-anchor="middle"
+        font-family="'DM Sans', Helvetica, Arial, sans-serif"
+        font-size="11" fill="#ffffff" fill-opacity="0.22" letter-spacing="2">
+    BY OLD MAN AI SOLUTIONS
+  </text>
+</svg>
