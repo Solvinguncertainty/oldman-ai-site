@@ -148,19 +148,33 @@ export default function ClientScripts() {
     };
     fieldNotesForm?.addEventListener("submit", onFieldNotesSubmit);
 
-    // --- Expandable product cards ---
+    // --- Expandable product cards (accordion — only one open at a time) ---
     const productCards = Array.from(
       document.querySelectorAll<HTMLElement>(".product-card[data-expandable]")
     );
     const productHandlers: { el: HTMLElement; onClick: () => void; toggle?: HTMLElement; onToggleClick?: (e: Event) => void }[] = [];
+
+    const expandCard = (card: HTMLElement) => {
+      const wasExpanded = card.classList.contains("expanded");
+      // Collapse every card first
+      productCards.forEach((c) => c.classList.remove("expanded"));
+      if (!wasExpanded) {
+        card.classList.add("expanded");
+        // Scroll the expanded card into view after the transition starts
+        setTimeout(() => {
+          card.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
+      }
+    };
+
     productCards.forEach((card) => {
       const toggle = card.querySelector(".product-card__toggle") as HTMLElement | null;
       const onToggleClick = (e: Event) => {
         e.stopPropagation();
-        card.classList.toggle("expanded");
+        expandCard(card);
       };
       const onClick = () => {
-        card.classList.toggle("expanded");
+        expandCard(card);
       };
       toggle?.addEventListener("click", onToggleClick);
       card.addEventListener("click", onClick);
