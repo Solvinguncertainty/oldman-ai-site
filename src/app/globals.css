@@ -1070,6 +1070,16 @@ ul { list-style: none; }
   display: block;
 }
 
+/* Variant: portrait phone-style image that should fill the tile edge-to-edge */
+.product-card__logo--portrait {
+  background: #0F0D0A;
+  padding: 0;
+}
+
+.product-card__logo--portrait img {
+  object-fit: cover;
+}
+
 .product-card__toggle {
   position: absolute;
   top: 0; right: 0;

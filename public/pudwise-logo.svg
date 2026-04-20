@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Pudwise — Perfect puddings. Wherever you roast.">
+  <defs>
+    <linearGradient id="og-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F9F4EC" />
+      <stop offset="55%" stop-color="#F3E6CC" />
+      <stop offset="100%" stop-color="#E8CB93" />
+    </linearGradient>
+    <radialGradient id="og-pud-crown" cx="50%" cy="40%" r="70%">
+      <stop offset="0%"  stop-color="#C9921B" />
+      <stop offset="100%" stop-color="#7A4F08" />
+    </radialGradient>
+    <linearGradient id="og-pud-bowl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B6508" />
+      <stop offset="100%" stop-color="#3E2909" />
+    </linearGradient>
+    <pattern id="og-texture" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#2C1A0E" fill-opacity="0.04" />
+    </pattern>
+    <style>
+      .og-serif { font-family: "Playfair Display", "Times New Roman", Georgia, serif; }
+      .og-sans  { font-family: "DM Sans", system-ui, sans-serif; }
+      .og-dark  { fill: #2C1A0E; }
+      .og-gold  { fill: #B8860B; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#og-bg)" />
+  <rect width="1200" height="630" fill="url(#og-texture)" />
+
+  <!-- Decorative double-border -->
+  <rect x="40" y="40" width="1120" height="550" rx="36" fill="none" stroke="#B8860B" stroke-width="4" />
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="none" stroke="#B8860B" stroke-width="1" opacity="0.6" />
+
+  <!-- Pudding ornament, right side -->
+  <g transform="translate(920 340)">
+    <path d="M -170 -10
+             C -150 -90, -80 -130, -30 -118
+             C  -10 -114, 10 -112, 30 -118
+             C  80 -130, 150 -90, 170 -10
+             C 140  20,  80  38,   0  38
+             C -80  38, -140  20, -170 -10 Z"
+          fill="url(#og-pud-crown)" />
+    <path d="M -170 0
+             C -170 70, -90 110,   0 110
+             C  90 110, 170 70, 170 0
+             C 160 38,  90 58,   0 58
+             C -90 58, -160 38, -170 0 Z"
+          fill="url(#og-pud-bowl)" />
+    <path d="M -170 -5 C -110 14, -50 22, 0 22 C 50 22, 110 14, 170 -5"
+          fill="none" stroke="#F9D78A" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+  </g>
+
+  <!-- Wordmark + tagline -->
+  <g transform="translate(110 210)">
+    <text class="og-sans og-gold" x="0" y="0" font-size="26" letter-spacing="6">PUDWISE</text>
+    <text class="og-serif og-dark" x="0" y="130" font-size="110" font-weight="600">Perfect puddings.</text>
+    <text class="og-serif og-gold" x="0" y="240" font-size="110" font-weight="600" font-style="italic">Wherever you roast.</text>
+    <text class="og-sans og-dark" x="0" y="308" font-size="26" opacity="0.75">
+      Location-aware Yorkshire pudding calibration. Seven-day free trial.
+    </text>
+  </g>
+
+  <!-- Bottom bar -->
+  <g transform="translate(0 590)">
+    <rect width="1200" height="4" y="-4" fill="#B8860B" opacity="0.35" />
+    <text class="og-sans og-dark" x="100" y="22" font-size="20" letter-spacing="3">pudwise.app</text>
+  </g>
+</svg>
