@@ -7,7 +7,7 @@ import {
   type Product,
   type ProductImage,
 } from "@/lib/products/types";
-import BuyButton from "./BuyButton";
+import JoyBuyButton from "./BuyButton";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -19,20 +19,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .select("name, description")
     .eq("slug", slug)
     .eq("status", "active")
-    .eq("store_slug", "the-craft")
+    .eq("store_slug", "joy-inc")
     .single();
-  if (!data) return { title: "Not found — The Craft" };
+  if (!data) return { title: "Not found — Joy Inc." };
   return {
-    title: `${data.name} — The Craft`,
+    title: `${data.name} — Joy Inc.`,
     description:
       (data.description ?? "").slice(0, 180) ||
-      "A small-batch object from The Craft, a workshop of Oldman AI Solutions.",
+      "A handmade object from Joy Inc., a workshop of Oldman AI Solutions.",
   };
 }
 
 export const revalidate = 60;
 
-export default async function ProductDetailPage({ params }: Props) {
+export default async function JoyProductDetailPage({ params }: Props) {
   const { slug } = await params;
   const supabase = await createClient();
 
@@ -41,7 +41,7 @@ export default async function ProductDetailPage({ params }: Props) {
     .select("*")
     .eq("slug", slug)
     .eq("status", "active")
-    .eq("store_slug", "the-craft")
+    .eq("store_slug", "joy-inc")
     .single<Product>();
 
   if (!product) notFound();
@@ -61,23 +61,22 @@ export default async function ProductDetailPage({ params }: Props) {
 
   return (
     <>
-      {/* Navigation */}
-      <nav className="craft-nav">
-        <div className="craft-nav__inner">
-          <a href="/shop/the-craft" className="craft-nav__brand">
-            <img src="/craft-mark.svg" alt="" className="craft-nav__mark" />
-            <span className="craft-nav__brand-text">The Craft</span>
+      <nav className="joy-nav">
+        <div className="joy-nav__inner">
+          <a href="/shop/joy-inc" className="joy-nav__brand">
+            <img src="/joy-mark.svg" alt="" className="joy-nav__mark" />
+            <span className="joy-nav__brand-text">Joy Inc.</span>
           </a>
-          <div className="craft-nav__links">
-            <a href="/shop/the-craft">Shop</a>
-            <a href="/shop/the-craft/about">About</a>
+          <div className="joy-nav__links">
+            <a href="/shop/joy-inc">Shop</a>
+            <a href="/shop/joy-inc/about">About</a>
+            <a href="/shop">All Shops</a>
             <a href="/">Oldman AI Solutions</a>
           </div>
         </div>
       </nav>
 
-      {/* Hero image */}
-      <div className="craft-product-hero">
+      <div className="joy-product-hero">
         {primary ? (
           <img
             src={publicImageUrl(supabaseUrl, primary.storage_path)}
@@ -85,28 +84,27 @@ export default async function ProductDetailPage({ params }: Props) {
           />
         ) : (
           <svg
-            className="craft-product-hero--empty"
+            className="joy-product-hero--empty"
             viewBox="0 0 24 24"
             width="64"
             height="64"
             fill="none"
             stroke="currentColor"
           >
-            <polygon points="12,4 20,12 12,20 4,12" strokeWidth="1" />
+            <circle cx="12" cy="12" r="5" />
           </svg>
         )}
       </div>
 
-      {/* Main */}
-      <section className="craft-product-main">
-        <a href="/shop/the-craft" className="craft-back">Back to shop</a>
+      <section className="joy-product-main">
+        <a href="/shop/joy-inc" className="joy-back">Back to shop</a>
 
-        <div className="craft-product-main__top">
-          <h1 className="craft-product-title">{product.name}</h1>
-          <div className="craft-product-price">
+        <div className="joy-product-main__top">
+          <h1 className="joy-product-title">{product.name}</h1>
+          <div className="joy-product-price">
             <span>{formatPrice(product.price_cents, product.currency)}</span>
             <span
-              className={`craft-product-price__status${inStock ? "" : " craft-product-price__status--out"}`}
+              className={`joy-product-price__status${inStock ? "" : " joy-product-price__status--out"}`}
             >
               {inStock ? `${product.inventory_count} in stock` : "Sold out"}
             </span>
@@ -114,18 +112,19 @@ export default async function ProductDetailPage({ params }: Props) {
         </div>
 
         {product.description ? (
-          <div className="craft-product-description">
+          <div className="joy-product-description">
             {product.description.split(/\n\n+/).map((para, i) => (
               <p key={i}>{para}</p>
             ))}
           </div>
         ) : null}
 
-        <div className="craft-product-actions">
-          <BuyButton
+        <div className="joy-product-actions">
+          <JoyBuyButton
             slug={product.slug}
+            storeSlug="joy-inc"
             inStock={inStock}
-            label="Buy now"
+            label="Add to cart"
           />
         </div>
 
@@ -133,31 +132,31 @@ export default async function ProductDetailPage({ params }: Props) {
           product.dimensions ||
           product.weight_grams ||
           product.lead_time_days) && (
-          <div className="craft-specs">
+          <div className="joy-specs">
             {product.materials && (
-              <div className="craft-specs__item">
-                <span className="craft-specs__label">Materials</span>
-                <span className="craft-specs__value">{product.materials}</span>
+              <div className="joy-specs__item">
+                <span className="joy-specs__label">Materials</span>
+                <span className="joy-specs__value">{product.materials}</span>
               </div>
             )}
             {product.dimensions && (
-              <div className="craft-specs__item">
-                <span className="craft-specs__label">Dimensions</span>
-                <span className="craft-specs__value">{product.dimensions}</span>
+              <div className="joy-specs__item">
+                <span className="joy-specs__label">Dimensions</span>
+                <span className="joy-specs__value">{product.dimensions}</span>
               </div>
             )}
             {product.weight_grams != null && (
-              <div className="craft-specs__item">
-                <span className="craft-specs__label">Weight</span>
-                <span className="craft-specs__value">
+              <div className="joy-specs__item">
+                <span className="joy-specs__label">Weight</span>
+                <span className="joy-specs__value">
                   {product.weight_grams}&nbsp;g
                 </span>
               </div>
             )}
             {product.lead_time_days != null && (
-              <div className="craft-specs__item">
-                <span className="craft-specs__label">Lead time</span>
-                <span className="craft-specs__value">
+              <div className="joy-specs__item">
+                <span className="joy-specs__label">Lead time</span>
+                <span className="joy-specs__value">
                   {product.lead_time_days}&nbsp;days
                 </span>
               </div>
@@ -166,9 +165,9 @@ export default async function ProductDetailPage({ params }: Props) {
         )}
 
         {galleryImages.length > 0 && (
-          <div className="craft-gallery">
+          <div className="joy-gallery">
             {galleryImages.map((img) => (
-              <div key={img.id} className="craft-gallery__img">
+              <div key={img.id} className="joy-gallery__img">
                 <img
                   src={publicImageUrl(supabaseUrl, img.storage_path)}
                   alt={img.alt_text ?? product.name}
@@ -179,11 +178,10 @@ export default async function ProductDetailPage({ params }: Props) {
         )}
       </section>
 
-      {/* Footer */}
-      <footer className="craft-footer">
-        <div className="craft-footer__rule" />
+      <footer className="joy-footer">
+        <div className="joy-footer__rule" />
         <p>A workshop of <a href="/">Oldman AI Solutions</a>.</p>
-        <p className="craft-footer__copy">&copy; 2026 The Craft</p>
+        <p className="joy-footer__copy">&copy; 2026 Joy Inc.</p>
       </footer>
     </>
   );

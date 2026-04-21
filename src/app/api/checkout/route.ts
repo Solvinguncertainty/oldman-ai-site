@@ -1,7 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getStripe, isStripeConfigured, publicAppUrl } from "@/lib/stripe";
-import { publicImageUrl, type Product } from "@/lib/products/types";
+import {
+  publicImageUrl,
+  STORE_SHOP_PATHS,
+  type Product,
+  type StoreSlug,
+} from "@/lib/products/types";
 
 export const runtime = "nodejs";
 
@@ -16,7 +21,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  let body: { slug?: string; quantity?: number } = {};
+  let body: { slug?: string; quantity?: number; store?: string } = {};
   try {
     body = await request.json();
   } catch {
@@ -25,6 +30,9 @@ export async function POST(request: NextRequest) {
 
   const slug = String(body.slug ?? "").trim();
   const quantity = Math.max(1, Math.min(99, Number(body.quantity ?? 1) || 1));
+  const storeInput = String(body.store ?? "the-craft").trim();
+  const storeSlug: StoreSlug =
+    storeInput === "joy-inc" ? "joy-inc" : "the-craft";
 
   if (!slug) {
     return NextResponse.json({ error: "Missing product slug." }, { status: 400 });
@@ -36,6 +44,7 @@ export async function POST(request: NextRequest) {
     .select("*")
     .eq("slug", slug)
     .eq("status", "active")
+    .eq("store_slug", storeSlug)
     .single<Product>();
 
   if (error || !product) {
@@ -91,15 +100,15 @@ export async function POST(request: NextRequest) {
       product_slug: product.slug,
       product_name: product.name,
       quantity: String(quantity),
-      store: "the-craft",
+      store: storeSlug,
     },
     shipping_address_collection: {
       allowed_countries: ["CA", "US"],
     },
     phone_number_collection: { enabled: true },
     billing_address_collection: "auto",
-    success_url: `${appUrl}/shop/the-craft/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${appUrl}/shop/the-craft/${product.slug}?canceled=1`,
+    success_url: `${appUrl}${STORE_SHOP_PATHS[storeSlug]}/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${appUrl}${STORE_SHOP_PATHS[storeSlug]}/${product.slug}?canceled=1`,
     allow_promotion_codes: true,
   });
 

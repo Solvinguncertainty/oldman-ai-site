@@ -18,6 +18,9 @@ async function recordOrderFromSession(session: Stripe.Checkout.Session) {
   const productIdFromMeta = session.metadata?.product_id ?? null;
   const productSlug = session.metadata?.product_slug ?? null;
   const productName = session.metadata?.product_name ?? "Unknown product";
+  const storeSlugMeta = session.metadata?.store ?? "the-craft";
+  const storeSlug =
+    storeSlugMeta === "joy-inc" ? "joy-inc" : "the-craft";
 
   // The shape of shipping info varies slightly between Stripe API versions.
   // Normalize via an opaque type so both shapes work.
@@ -71,6 +74,7 @@ async function recordOrderFromSession(session: Stripe.Checkout.Session) {
     .upsert(
       {
         stripe_session_id: session.id,
+        store_slug: storeSlug,
         stripe_payment_intent:
           typeof session.payment_intent === "string"
             ? session.payment_intent

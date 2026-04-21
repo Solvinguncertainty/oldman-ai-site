@@ -84,8 +84,11 @@ export default async function EditProductPage({ params }: Props) {
               {product.status === "active" ? (
                 <>
                   Live at{" "}
-                  <a href={`/shop/${product.slug}`} target="_blank">
-                    /shop/{product.slug}
+                  <a
+                    href={`/shop/${product.store_slug}/${product.slug}`}
+                    target="_blank"
+                  >
+                    /shop/{product.store_slug}/{product.slug}
                   </a>
                 </>
               ) : (

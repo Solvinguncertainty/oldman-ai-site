@@ -45,6 +45,22 @@ export default function ProductForm({
         <h3>Basics</h3>
         <div className="admin-form__grid">
           <div className="admin-form__field admin-form__grid--full">
+            <label htmlFor="store_slug">Store</label>
+            <select
+              id="store_slug"
+              name="store_slug"
+              defaultValue={product?.store_slug ?? "the-craft"}
+              disabled={isPending}
+            >
+              <option value="the-craft">The Craft — Cory (3D printed goods)</option>
+              <option value="joy-inc">Joy Inc. — Bethany (resin &amp; gifts)</option>
+            </select>
+            <span className="admin-form__help">
+              Which workshop this product belongs to. Can be changed later.
+            </span>
+          </div>
+
+          <div className="admin-form__field admin-form__grid--full">
             <label htmlFor="name">Name</label>
             <input
               id="name"
@@ -67,7 +83,7 @@ export default function ProductForm({
               disabled={isPending}
             />
             <span className="admin-form__help">
-              Public URL will be /shop/<strong>{product?.slug ?? "your-slug"}</strong>
+              Public URL will be /shop/{product?.store_slug ?? "the-craft"}/<strong>{product?.slug ?? "your-slug"}</strong>
             </span>
           </div>
 

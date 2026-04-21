@@ -6,6 +6,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import {
   formatPrice,
   publicImageUrl,
+  STORE_LABELS,
   type Product,
   type ProductImage,
 } from "@/lib/products/types";
@@ -103,6 +104,7 @@ export default async function AdminProductsPage() {
               <tr>
                 <th></th>
                 <th>Name</th>
+                <th>Store</th>
                 <th>Status</th>
                 <th>Price</th>
                 <th>Inventory</th>
@@ -137,6 +139,18 @@ export default async function AdminProductsPage() {
                       >
                         {p.name}
                       </a>
+                    </td>
+                    <td>
+                      <span
+                        style={{
+                          fontSize: "0.78rem",
+                          fontWeight: 600,
+                          color:
+                            p.store_slug === "joy-inc" ? "#D97A7A" : "#B88A4E",
+                        }}
+                      >
+                        {STORE_LABELS[p.store_slug] ?? p.store_slug}
+                      </span>
                     </td>
                     <td>
                       <span className={`admin-status admin-status--${p.status}`}>

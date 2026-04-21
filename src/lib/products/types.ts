@@ -1,9 +1,11 @@
 export type ProductStatus = "draft" | "active" | "archived";
 export type Currency = "CAD" | "USD";
+export type StoreSlug = "the-craft" | "joy-inc";
 
 export type Product = {
   id: string;
   slug: string;
+  store_slug: StoreSlug;
   name: string;
   description: string | null;
   price_cents: number;
@@ -17,6 +19,16 @@ export type Product = {
   metadata: Record<string, unknown>;
   created_at: string;
   updated_at: string;
+};
+
+export const STORE_LABELS: Record<StoreSlug, string> = {
+  "the-craft": "The Craft",
+  "joy-inc": "Joy Inc.",
+};
+
+export const STORE_SHOP_PATHS: Record<StoreSlug, string> = {
+  "the-craft": "/shop/the-craft",
+  "joy-inc": "/shop/joy-inc",
 };
 
 export type ProductImage = {

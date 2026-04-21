@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { slugify, type Currency, type ProductStatus } from "@/lib/products/types";
+import { slugify, type Currency, type ProductStatus, type StoreSlug } from "@/lib/products/types";
 
 async function requireAuth() {
   const supabase = await createClient();
@@ -28,6 +28,10 @@ function extractForm(formData: FormData) {
     "CAD") as Currency;
   const status = (String(formData.get("status") ?? "draft").trim() ||
     "draft") as ProductStatus;
+  const storeInput = String(formData.get("store_slug") ?? "the-craft").trim();
+  const store_slug = (
+    storeInput === "joy-inc" ? "joy-inc" : "the-craft"
+  ) as StoreSlug;
   const materials = String(formData.get("materials") ?? "").trim() || null;
   const dimensions = String(formData.get("dimensions") ?? "").trim() || null;
 
@@ -47,6 +51,7 @@ function extractForm(formData: FormData) {
   return {
     name,
     slug,
+    store_slug,
     description,
     price_cents,
     currency,
@@ -134,7 +139,7 @@ export async function createProductAction(
   }
 
   revalidatePath("/admin/products");
-  revalidatePath("/shop");
+  revalidatePath("/shop/the-craft"); revalidatePath("/shop/joy-inc");
   redirect(`/admin/products/${product.id}`);
 }
 
@@ -190,7 +195,7 @@ export async function updateProductAction(
 
   revalidatePath("/admin/products");
   revalidatePath(`/admin/products/${productId}`);
-  revalidatePath("/shop");
+  revalidatePath("/shop/the-craft"); revalidatePath("/shop/joy-inc");
   return { error: null };
 }
 
@@ -218,7 +223,7 @@ export async function deleteProductAction(productId: string): Promise<void> {
   await admin.from("products").delete().eq("id", productId);
 
   revalidatePath("/admin/products");
-  revalidatePath("/shop");
+  revalidatePath("/shop/the-craft"); revalidatePath("/shop/joy-inc");
   redirect("/admin/products");
 }
 
@@ -247,5 +252,5 @@ export async function deleteImageAction(
   await admin.from("product_images").delete().eq("id", imageId);
 
   revalidatePath(`/admin/products/${productId}`);
-  revalidatePath("/shop");
+  revalidatePath("/shop/the-craft"); revalidatePath("/shop/joy-inc");
 }

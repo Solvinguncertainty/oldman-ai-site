@@ -4,11 +4,17 @@ import { useState } from "react";
 
 type Props = {
   slug: string;
+  storeSlug: string;
   inStock: boolean;
   label: string;
 };
 
-export default function BuyButton({ slug, inStock, label }: Props) {
+export default function JoyBuyButton({
+  slug,
+  storeSlug,
+  inStock,
+  label,
+}: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,7 +26,7 @@ export default function BuyButton({ slug, inStock, label }: Props) {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug, store: "the-craft", quantity: 1 }),
+        body: JSON.stringify({ slug, store: storeSlug, quantity: 1 }),
       });
       const data = (await res.json().catch(() => null)) as {
         url?: string;
@@ -48,12 +54,12 @@ export default function BuyButton({ slug, inStock, label }: Props) {
       <>
         <button
           type="button"
-          className="craft-btn craft-btn--disabled"
+          className="joy-btn joy-btn--disabled"
           disabled
         >
           Sold out
         </button>
-        <p className="craft-product-note">
+        <p className="joy-product-note">
           To be notified when restocked, email greg@oldmanaisolutions.com
         </p>
       </>
@@ -64,19 +70,19 @@ export default function BuyButton({ slug, inStock, label }: Props) {
     <>
       <button
         type="button"
-        className="craft-btn"
+        className="joy-btn"
         onClick={handleClick}
         disabled={isLoading}
       >
         {isLoading ? "Opening checkout..." : label}
       </button>
       {error ? (
-        <p className="craft-product-note" style={{ color: "var(--craft-ember)" }}>
+        <p className="joy-product-note" style={{ color: "#B85858" }}>
           {error}
         </p>
       ) : (
-        <p className="craft-product-note">
-          Secure checkout via Stripe &bull; Ships from Lethbridge, Alberta
+        <p className="joy-product-note">
+          Secure checkout via Stripe &bull; Made &amp; shipped by Bethany
         </p>
       )}
     </>

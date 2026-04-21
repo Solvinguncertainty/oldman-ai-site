@@ -11,6 +11,7 @@ export default async function ShopPage() {
     .from("products")
     .select("*")
     .eq("status", "active")
+    .eq("store_slug", "the-craft")
     .order("created_at", { ascending: false });
 
   const productList = (products ?? []) as Product[];
