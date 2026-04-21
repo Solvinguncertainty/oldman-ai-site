@@ -91,14 +91,15 @@ export async function POST(request: NextRequest) {
       product_slug: product.slug,
       product_name: product.name,
       quantity: String(quantity),
+      store: "the-craft",
     },
     shipping_address_collection: {
       allowed_countries: ["CA", "US"],
     },
     phone_number_collection: { enabled: true },
     billing_address_collection: "auto",
-    success_url: `${appUrl}/shop/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${appUrl}/shop/${product.slug}?canceled=1`,
+    success_url: `${appUrl}/shop/the-craft/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${appUrl}/shop/the-craft/${product.slug}?canceled=1`,
     allow_promotion_codes: true,
   });
 

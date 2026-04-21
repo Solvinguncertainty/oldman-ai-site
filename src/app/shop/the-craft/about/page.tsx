@@ -11,20 +11,20 @@ export default function ShopAboutPage() {
     <>
       <nav className="craft-nav">
         <div className="craft-nav__inner">
-          <a href="/shop" className="craft-nav__brand">
+          <a href="/shop/the-craft" className="craft-nav__brand">
             <img src="/craft-mark.svg" alt="" className="craft-nav__mark" />
             <span className="craft-nav__brand-text">The Craft</span>
           </a>
           <div className="craft-nav__links">
-            <a href="/shop">Shop</a>
-            <a href="/shop/about">About</a>
+            <a href="/shop/the-craft">Shop</a>
+            <a href="/shop/the-craft/about">About</a>
             <a href="/">Oldman AI Solutions</a>
           </div>
         </div>
       </nav>
 
       <section className="craft-about">
-        <a href="/shop" className="craft-back">Back to shop</a>
+        <a href="/shop/the-craft" className="craft-back">Back to shop</a>
 
         <div className="craft-section__label" style={{ marginTop: 32 }}>
           The Workshop

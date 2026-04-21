@@ -3,13 +3,13 @@ export default function NotFound() {
     <>
       <nav className="craft-nav">
         <div className="craft-nav__inner">
-          <a href="/shop" className="craft-nav__brand">
+          <a href="/shop/the-craft" className="craft-nav__brand">
             <img src="/craft-mark.svg" alt="" className="craft-nav__mark" />
             <span className="craft-nav__brand-text">The Craft</span>
           </a>
           <div className="craft-nav__links">
-            <a href="/shop">Shop</a>
-            <a href="/shop/about">About</a>
+            <a href="/shop/the-craft">Shop</a>
+            <a href="/shop/the-craft/about">About</a>
             <a href="/">Oldman AI Solutions</a>
           </div>
         </div>
@@ -22,7 +22,7 @@ export default function NotFound() {
           This product doesn&rsquo;t exist, isn&rsquo;t published yet, or was
           taken off the shelves.
         </p>
-        <a href="/shop" className="craft-btn">Back to shop</a>
+        <a href="/shop/the-craft" className="craft-btn">Back to shop</a>
       </div>
 
       <footer className="craft-footer">

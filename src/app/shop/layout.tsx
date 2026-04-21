@@ -1,21 +1,9 @@
-import type { Metadata } from "next";
-import "./shop.css";
-
-export const metadata: Metadata = {
-  title: "The Craft — A workshop of Oldman AI Solutions",
-  description:
-    "Small batches. Real objects. 3D printed goods from a single workshop in Lethbridge, Alberta.",
-  openGraph: {
-    title: "The Craft",
-    description: "Small batches. Real objects. Built in Lethbridge, Alberta.",
-    type: "website",
-  },
-};
-
+// Minimal parent layout for /shop. Individual stores (the-craft, joy-inc)
+// provide their own nested layouts with their own CSS + icons.
 export default function ShopLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="craft-root">{children}</div>;
+  return children;
 }

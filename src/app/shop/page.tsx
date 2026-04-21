@@ -1,145 +1,78 @@
-import { createClient } from "@/lib/supabase/server";
-import type { Product, ProductImage } from "@/lib/products/types";
-import { formatPrice, publicImageUrl } from "@/lib/products/types";
+import type { Metadata } from "next";
+import "./hub.css";
 
-export const revalidate = 60;
+export const metadata: Metadata = {
+  title: "Shop — Oldman AI Solutions",
+  description:
+    "Two workshops under one roof. The Craft: small-batch 3D printed goods. Joy Inc.: handmade resin art and gifts that bring joy.",
+};
 
-export default async function ShopPage() {
-  const supabase = await createClient();
-
-  const { data: products } = await supabase
-    .from("products")
-    .select("*")
-    .eq("status", "active")
-    .order("created_at", { ascending: false });
-
-  const productList = (products ?? []) as Product[];
-
-  let imagesByProduct: Map<string, ProductImage[]> = new Map();
-  if (productList.length > 0) {
-    const { data: imgs } = await supabase
-      .from("product_images")
-      .select("*")
-      .in(
-        "product_id",
-        productList.map((p) => p.id)
-      );
-    if (imgs) {
-      for (const img of imgs as ProductImage[]) {
-        const arr = imagesByProduct.get(img.product_id) ?? [];
-        arr.push(img);
-        imagesByProduct.set(img.product_id, arr);
-      }
-    }
-  }
-
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
-
+export default function ShopHubPage() {
   return (
-    <>
-      {/* Navigation */}
-      <nav className="craft-nav">
-        <div className="craft-nav__inner">
-          <a href="/shop" className="craft-nav__brand">
-            <img
-              src="/craft-mark.svg"
-              alt=""
-              className="craft-nav__mark"
-            />
-            <span className="craft-nav__brand-text">The Craft</span>
-          </a>
-          <div className="craft-nav__links">
-            <a href="/shop">Shop</a>
-            <a href="/shop/about">About</a>
-            <a href="/">Oldman AI Solutions</a>
-          </div>
-        </div>
+    <div className="hub-root">
+      <nav className="hub-nav">
+        <a href="/" className="hub-nav__brand">
+          <img src="/logo-circular.png" alt="Oldman AI Solutions" />
+          <span className="hub-nav__brand-text">Oldman AI Solutions</span>
+        </a>
+        <a href="/" className="hub-nav__back">&larr; Back to site</a>
       </nav>
 
-      {/* Hero */}
-      <header className="craft-hero">
-        <img
-          src="/craft-logo.svg"
-          alt="The Craft — a workshop of Oldman AI Solutions"
-          className="craft-hero__logo"
-        />
-        <p className="craft-hero__tagline">
-          Small batches. Real objects. Made by hand in a single workshop.
-        </p>
-        <p className="craft-hero__meta">
-          BUILT IN <span>LETHBRIDGE, ALBERTA</span>
+      <header className="hub-hero">
+        <p className="hub-hero__eyebrow">Our Workshops</p>
+        <h1 className="hub-hero__title">
+          Two workshops.<br />Under one roof.
+        </h1>
+        <p className="hub-hero__desc">
+          Each store is run by a different maker with a different craft. Pick
+          the one that calls to you &mdash; both make real things, by hand, one
+          at a time.
         </p>
       </header>
 
-      {/* Products */}
-      <section className="craft-section">
-        <div className="craft-section__label">The Catalogue</div>
-        <h1 className="craft-section__title">
-          Objects designed and printed one at a time.
-        </h1>
-
-        {productList.length === 0 ? (
-          <div className="craft-empty">
-            <img
-              src="/craft-mark.svg"
-              alt=""
-              className="craft-empty__mark"
-            />
-            <h2 className="craft-empty__title">The shelves are being stocked.</h2>
-            <p className="craft-empty__desc">
-              The first run of products is being prepared. If you&rsquo;d like to
-              know when they&rsquo;re ready, drop a line from the Oldman AI
-              Solutions site.
+      <section className="hub-stores">
+        <a href="/shop/the-craft" className="hub-store hub-store--craft">
+          <div className="hub-store__content">
+            <div className="hub-store__logo">
+              <img src="/craft-logo.svg" alt="The Craft" />
+            </div>
+            <p className="hub-store__label">3D Printed Goods</p>
+            <h2 className="hub-store__tagline">
+              Small batches.<br />Real objects.
+            </h2>
+            <p className="hub-store__desc">
+              Designed and printed one at a time in Lethbridge, Alberta.
+              Functional objects, gifts, and pieces you can&rsquo;t find on a
+              shelf somewhere.
             </p>
+            <span className="hub-store__cta">Enter The Craft &rarr;</span>
           </div>
-        ) : (
-          <div className="craft-products">
-            {productList.map((p) => {
-              const imgs = imagesByProduct.get(p.id) ?? [];
-              const primary =
-                imgs.find((i) => i.is_primary) ?? imgs[0] ?? null;
-              const imgUrl = primary
-                ? publicImageUrl(supabaseUrl, primary.storage_path)
-                : null;
-              return (
-                <a
-                  key={p.id}
-                  href={`/shop/${p.slug}`}
-                  className="craft-product-card"
-                >
-                  <div className="craft-product-card__image">
-                    {imgUrl ? (
-                      <img src={imgUrl} alt={primary?.alt_text ?? p.name} />
-                    ) : (
-                      <svg
-                        className="craft-product-card__image--placeholder"
-                        viewBox="0 0 24 24"
-                        width="32"
-                        height="32"
-                        fill="none"
-                        stroke="currentColor"
-                      >
-                        <polygon points="12,4 20,12 12,20 4,12" strokeWidth="1" />
-                      </svg>
-                    )}
-                  </div>
-                  <div className="craft-product-card__name">{p.name}</div>
-                  <div className="craft-product-card__price">
-                    {formatPrice(p.price_cents, p.currency)}
-                  </div>
-                </a>
-              );
-            })}
+        </a>
+
+        <a href="/shop/joy-inc" className="hub-store hub-store--joy">
+          <div className="hub-store__content">
+            <div className="hub-store__logo">
+              <img src="/joy-logo.svg" alt="Joy Inc." />
+            </div>
+            <p className="hub-store__label">Handmade Resin &amp; Gifts</p>
+            <h2 className="hub-store__tagline">
+              Little objects.<br />Big joy.
+            </h2>
+            <p className="hub-store__desc">
+              Resin art, knickknacks, and one-of-a-kind gifts made by Bethany.
+              Every piece is handmade with the kind of care that only someone
+              who genuinely loves making things can bring to it.
+            </p>
+            <span className="hub-store__cta">Enter Joy Inc. &rarr;</span>
           </div>
-        )}
+        </a>
       </section>
 
-      {/* Footer */}
-      <footer className="craft-footer">
-        <div className="craft-footer__rule" />
-        <p>A workshop of <a href="/">Oldman AI Solutions</a>.</p>
-        <p className="craft-footer__copy">&copy; 2026 The Craft</p>
+      <footer className="hub-footer">
+        <p>
+          Both workshops are part of <a href="/">Oldman AI Solutions</a>.
+        </p>
       </footer>
-    </>
+    </div>
   );
 }
