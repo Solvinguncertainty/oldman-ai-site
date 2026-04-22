@@ -220,6 +220,28 @@ ul { list-style: none; }
   box-shadow: 0 4px 16px rgba(58, 123, 191, 0.3);
 }
 
+/* Fantasy Draft — external link, sits on the far right of the nav */
+.nav__fantasy {
+  background: var(--tan) !important;
+  color: var(--navy) !important;
+  padding: 9px 18px !important;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.3px;
+  border: 1px solid var(--tan) !important;
+  transition: all 0.25s ease !important;
+  margin-left: 6px;
+}
+.nav__fantasy::after { display: none !important; }
+.nav__fantasy:hover {
+  background: var(--tan-dark) !important;
+  border-color: var(--tan-dark) !important;
+  color: var(--navy) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(196, 162, 101, 0.35);
+}
+
 .nav__toggle {
   display: none;
   background: none; border: none;
