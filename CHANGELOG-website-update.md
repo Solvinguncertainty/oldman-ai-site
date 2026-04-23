@@ -233,25 +233,26 @@ Services · Products · About · More ▾ · [Contact]
 - Before: "...I help people and organizations understand what's real, figure out what matters..."
 - After: "...We help people and organizations understand what's real, figure out what matters..."
 
-*NEW Bridging Generations + Tyler paragraph (inserted as about__text):*
-> An old man and AI. Tradition and the future. We sit at that intersection — bringing powerful new tools to the people, businesses, and generations who built the world we're standing on. Greg and Tyler run Oldman AI Solutions together, with the same conviction: good work leaves people better off than you found them.
+**FINAL About section content (four flat paragraphs, no "Read more" disclosure; user provided exact copy):**
 
-(Tyler is introduced here, once, by first name only, no additional detail per direction. He doesn't reappear on any other page.)
+1. **Lead (Mission):** "We believe people should shape lives after their own goals, not fall into whatever mold happens to be available. The default question shouldn't be 'what job pays my bills' — it should be 'what do I want to build with my life, and how do we make that real.' We're here to reduce suffering, keep ambition from going to waste, and leave the people we work with better off than we found them."
 
-*NEW Mission paragraph (inside the "Read more" details):*
-> We believe people should shape lives after their own goals, not fall into whatever mold happens to be available. The default question shouldn't be "what job pays my bills" — it should be "what do I want to build with my life, and how do we make that real." We're here to reduce suffering, keep ambition from going to waste, and leave the people we work with better off than we found them.
+2. **AI as a tool:** "AI is powerful. But it's a tool. A lever, not a replacement. The people holding it are what matter. That's why every engagement starts with the human problem, not the technology."
 
-*"Read more" closing paragraphs (still in details):*
-- Before: "Whether I'm on stage, in a boardroom, or building a custom system..."
-- After: "Whether we're on stage, in a boardroom, or building a custom system..."
+3. **Bridging Generations + Tyler:** "Tyler and Greg are old souls who have found out how to use AI as a tool to promote human flourishing. We founded this company to bridge the gap between the old and new. To align tradition and the future. To bring powerful new tools to the people, businesses, and generations who built the world we're standing on."
+
+4. **Foundation:** "That mindset is the foundation of this company. We help people and organizations understand what's real, figure out what matters, and use the right tools to solve the real problems."
 
 *Beliefs heading:*
 - Before: "What I Believe"
 - After: "What We Believe"
 
-**Structure preserved:** photo frame + badges left column; About section label, title, lead, body paragraphs, details disclosure, beliefs list right column. No layout changes. The section heading "Grounded in reality." stays unchanged.
+**Structure changes from original:**
+- Removed the `<details>` "Read more about how we think" disclosure — all four paragraphs are now visible.
+- Removed the previous "high-stakes environments / deal with what matters first" lead and the "Whether we're on stage…" closing sentence.
+- Order is exactly as user provided: Mission → AI is a tool → Tyler/Greg + founding → Foundation → Beliefs list.
 
-**Team-size tone:** Tyler is present as "Greg and Tyler run Oldman AI Solutions together" — once, in one sentence. Rest of the prose is pure "we." No "just the two of us" energy.
+**Tone:** Tyler is named once, by first name only, alongside Greg as co-founders.
 
 ---
 
