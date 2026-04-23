@@ -221,6 +221,77 @@ ul { list-style: none; }
 }
 
 
+/* ---- "More" dropdown (Shop + Fantasy Draft) ---- */
+.nav__more {
+  position: relative;
+}
+
+.nav__more-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: color 0.2s;
+}
+
+.nav__more-toggle:hover { color: var(--blue); }
+
+.nav__more-chevron {
+  transition: transform 0.2s ease;
+  color: currentColor;
+}
+
+.nav__more.is-open .nav__more-chevron {
+  transform: rotate(180deg);
+}
+
+.nav__more-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  min-width: 180px;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  padding: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 1100;
+}
+
+.nav__more.is-open .nav__more-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav__more-menu a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  color: var(--gray-700);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav__more-menu a:hover {
+  background: var(--blue-pale);
+  color: var(--blue);
+}
+
+.nav__more-menu a::after { display: none !important; }
+
 .nav__toggle {
   display: none;
   background: none; border: none;
@@ -975,6 +1046,74 @@ ul { list-style: none; }
 .products {
   padding: 100px 0;
   background: var(--white);
+}
+
+/* ---- Products page hero (dedicated /products route) ---- */
+.products-hero {
+  padding: calc(var(--nav-height) + 64px) 0 48px;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.products-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.1;
+  margin: 12px 0 20px;
+}
+
+.products-hero__lead {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--gray-700);
+  max-width: 780px;
+}
+
+/* On the /products page, the products section doesn't need a top padding
+   wall since the hero already handles spacing above it. */
+.products-hero + .products {
+  padding-top: 56px;
+}
+
+/* ---- Home CTA — compact "See Our Products" block ---- */
+.products-cta {
+  padding: 80px 0;
+  background: var(--white);
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.products-cta__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.products-cta__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.products-cta__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.products-cta__desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--gray-500);
+  margin-bottom: 32px;
 }
 
 .products__title {
@@ -2086,6 +2225,31 @@ ul { list-style: none; }
   .nav__links.active { display: flex; }
   .nav__toggle { display: flex; }
   .nav__cta { text-align: center; width: 100%; }
+
+  /* On mobile, flatten the "More" dropdown into the stacked nav */
+  .nav__more-toggle { display: none; }
+  .nav__more-menu {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nav__more-menu a {
+    padding: 0;
+    font-size: 0.85rem;
+    color: var(--gray-700);
+  }
+  .nav__more-menu a:hover {
+    background: transparent;
+    color: var(--blue);
+  }
 
   .hero { min-height: 75vh; }
   .hero__content { padding: 60px 24px 100px; }

@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Oldman AI Solutions — Custom AI Solutions, Consulting & Training",
   description:
-    "Custom AI solutions, McKinsey-style business consulting, and training. We build what your business actually needs — or teach you to build it yourself.",
+    "Custom AI solutions, rigorous business consulting, and training. We build what your business actually needs — or teach you to build it yourself.",
   openGraph: {
     title: "Oldman AI Solutions — Custom AI Solutions, Consulting & Training",
     description:

@@ -62,8 +62,8 @@ export default function ShopAboutPage() {
 
           <p>
             When you buy something here, it isn&rsquo;t pulled off a shelf.
-            It&rsquo;s printed, finished, and shipped from a single workshop by
-            the same person who designed it. That&rsquo;s the whole point.
+            It&rsquo;s designed, printed, finished, and shipped from a single
+            workshop. That&rsquo;s the whole point.
           </p>
         </div>
 

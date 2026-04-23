@@ -16,10 +16,20 @@
       </button>
       <ul class="nav__links" id="navLinks">
         <li><a href="#offerings">Services</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="/shop">Shop</a></li>
+        <li><a href="/products">Products</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="https://fantasy.oldmanaisolutions.com" target="_blank" rel="noopener">Fantasy Draft</a></li>
+        <li class="nav__more" id="navMore">
+          <button type="button" class="nav__more-toggle" aria-haspopup="menu" aria-expanded="false">
+            More
+            <svg class="nav__more-chevron" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+              <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav__more-menu" role="menu">
+            <a href="/shop" role="menuitem">Shop</a>
+            <a href="https://fantasy.oldmanaisolutions.com" target="_blank" rel="noopener" role="menuitem">Fantasy Draft &rarr;</a>
+          </div>
+        </li>
         <li><a href="#contact" class="nav__cta">Contact</a></li>
       </ul>
     </div>
@@ -90,7 +100,7 @@
     <div class="container">
       <p class="section-label">Services</p>
       <h2 class="services__intro-title">Four ways we work together.</h2>
-      <p class="services__intro-desc">Click a service to see how it works. Built for businesses, enterprises, schools, and individuals who want to master AI, not just adopt it.</p>
+      <p class="services__intro-desc">Click a service to see how it works. Built for businesses, enterprises, and schools who want to master AI, not just adopt it.</p>
 
       <div class="services__tabs" role="tablist">
         <button type="button" class="services__tab" data-service-tab="speaking" role="tab" aria-selected="false">
@@ -180,11 +190,11 @@
         <!-- CONSULTING panel -->
         <div class="services__panel" id="consulting" data-service-panel="consulting" role="tabpanel">
           <h3 class="services__panel-title">Deep assessment. Real solutions. Built, not just recommended.</h3>
-          <p class="services__panel-lead">Most consultants hand you a deck and a bill. I hand you a working solution. Every engagement starts with a full McKinsey-style business assessment — every process, every bottleneck, every opportunity. Then I build what your business actually needs.</p>
+          <p class="services__panel-lead">Most consultants hand you a deck and a bill. We hand you a working solution. Every engagement starts with a full business assessment — every process, every bottleneck, every opportunity. Then we build what your business actually needs.</p>
           <div class="services__cards">
             <div class="services__card">
               <h4>Full Business Assessment</h4>
-              <p>Rigorous diagnostic in the McKinsey tradition. Operations, workflows, team dynamics, tech stack — the full picture.</p>
+              <p>A rigorous diagnostic of operations, workflows, team dynamics, and tech stack &mdash; the full picture of where you are and where you could be.</p>
             </div>
             <div class="services__card">
               <h4>Custom Solution Build</h4>
@@ -229,7 +239,7 @@
               <p>Full applications &mdash; web, mobile, or both &mdash; designed around the problem your customers actually have.</p>
             </div>
           </div>
-          <p class="services__note">See <a href="#products" class="text-link">what we&rsquo;ve already built &rarr;</a> for examples.</p>
+          <p class="services__note">See <a href="/products" class="text-link">what we&rsquo;ve already built &rarr;</a> for examples.</p>
           <a href="#contact" class="btn btn--primary services__panel-cta">Build Something Real</a>
         </div>
       </div>
@@ -239,108 +249,17 @@
         <span class="services__audience-chip">Businesses &amp; Entrepreneurs</span>
         <span class="services__audience-chip">Enterprise &amp; Institutions</span>
         <span class="services__audience-chip">Schools &amp; Youth</span>
-        <span class="services__audience-chip">Individuals</span>
       </div>
     </div>
   </section>
 
-  <!-- 9. Products as Proof -->
-  <section class="products" id="products">
-    <div class="container">
-      <p class="section-label">Products</p>
-      <h2 class="products__title">Built to prove a point.</h2>
-      <p class="products__intro">Every product here solves a real problem for real people. They also prove how we think, build, and execute. If you like what you see, we can build something similar for you.</p>
-      <div class="products__grid">
-        <button type="button" class="product-card" data-product-tile="oneforty" aria-expanded="false">
-          <div class="product-card__logo">
-            <img src="/oneforty-logo.svg" alt="OneForty" />
-          </div>
-          <h3 class="product-card__title">OneForty</h3>
-          <p class="product-card__desc">An AI-powered longevity platform that fuses workouts, sleep, nutrition, supplements, and biomarkers into one daily action plan. Live to 100. Feel like 40.</p>
-          <span class="product-card__tag">Longevity &amp; Health</span>
-        </button>
-        <button type="button" class="product-card" data-product-tile="pudwiser" aria-expanded="false">
-          <div class="product-card__logo">
-            <img src="/pudwiser-logo.svg" alt="Pudwiser" />
-          </div>
-          <h3 class="product-card__title">Pudwiser</h3>
-          <p class="product-card__desc">Perfect puddings. Wherever you roast. A location-aware Yorkshire pudding recipe calibrated to your exact kitchen, oven, and climate.</p>
-          <span class="product-card__tag">Baking Intelligence</span>
-        </button>
-        <button type="button" class="product-card" data-product-tile="quote-machine" aria-expanded="false">
-          <div class="product-card__logo">
-            <img src="/quote-machine-logo.png" alt="The Quote Machine" />
-          </div>
-          <h3 class="product-card__title">The Quote Machine</h3>
-          <p class="product-card__desc">AI-powered quoting for construction contractors. Upload a spec PDF, get a detailed itemized quote in minutes.</p>
-          <span class="product-card__tag">AI for Construction</span>
-        </button>
-        <button type="button" class="product-card" data-product-tile="innermost" aria-expanded="false">
-          <div class="product-card__logo product-card__logo--portrait">
-            <img src="/innermost-logo.svg" alt="Innermost" />
-          </div>
-          <h3 class="product-card__title">Innermost</h3>
-          <p class="product-card__desc">An AI-guided human orientation platform. Helps people identify what matters, address what&rsquo;s broken, and take the next honest step &mdash; not the whole life plan.</p>
-          <span class="product-card__tag">Human Orientation</span>
-        </button>
-      </div>
-
-      <div class="products__detail-panel" id="productDetailPanel" hidden>
-        <button type="button" class="products__detail-close" id="productDetailClose" aria-label="Close details">&times;</button>
-
-        <article class="product-detail" data-product-detail="oneforty" hidden>
-          <h3 class="product-detail__title">OneForty</h3>
-          <p class="product-detail__tag">Longevity &amp; Health</p>
-          <div class="product-detail__body">
-            <p><em>Live to 100. Feel like 40.</em></p>
-            <p>OneForty is an AI-native health-performance platform built for people who want to add healthy decades to their life &mdash; not just hit a step goal. It unifies the data streams that usually live in five different apps (training, sleep, readiness, nutrition, supplements, lab biomarkers, body measurements) into a single intelligence layer that produces one prescription each morning: what to eat, how hard to train, what to take, and what to recover from.</p>
-            <p>Under the hood, OneForty runs on a 25-table Supabase backend with full multi-tenant row-level security, a deterministic readiness and longevity scoring engine, a 6-pattern detection system that surfaces hidden trends across sleep, HRV, training load, and nutrition, and a GPT-4o-powered Action Plan generator that synthesizes everything into plain-English coaching. Workouts are AI-generated, AI-narrated through five distinct coaching personas (drill sergeant, supportive coach, zen, hype, no-nonsense), and delivered as synthesized audio tracks that guide you rep-by-rep. Macros are estimated from photos, meal plans and grocery lists generate weekly, biomarker labs feed AI health reports, and a personal-records and 30-tier achievement system makes progress visible.</p>
-            <p>The mission is simple and the headline says it on every screen: <strong>Live to 100. Feel like 40.</strong></p>
-          </div>
-        </article>
-
-        <article class="product-detail" data-product-detail="pudwiser" hidden>
-          <h3 class="product-detail__title">Pudwiser</h3>
-          <p class="product-detail__tag">Baking Intelligence</p>
-          <div class="product-detail__body">
-            <p><em>Perfect puddings. Wherever you roast.</em></p>
-            <p>Pudwiser is premium baking intelligence for Yorkshire puddings. Elevation, humidity, and air pressure change how batter rises &mdash; and fan ovens, cupcake tins, and cast iron all behave differently. Pudwiser takes one classic, trusted base recipe and calibrates it to your exact location and kitchen setup, so you get the same confident rise every time.</p>
-            <p>Save your home recipe, troubleshoot a bake that didn&rsquo;t quite work, and share results with a community of bakers posting their weekly rises. No self-raising flour, no guesswork, no random recipes from the internet &mdash; just one recipe, dialled in for you.</p>
-            <ul>
-              <li><strong>Location-aware</strong> &mdash; adjusts for elevation, humidity, and pressure</li>
-              <li><strong>Kitchen-tuned</strong> &mdash; fan or conventional, cupcake tin or cast iron</li>
-              <li><strong>Trusted, not random</strong> &mdash; one classic recipe, calibrated every time</li>
-              <li><strong>Community</strong> &mdash; weekly featured bakes from other users</li>
-              <li><strong>Troubleshooter</strong> &mdash; diagnose a flat or soggy bake</li>
-            </ul>
-            <p>Start baking free for 7 days.</p>
-          </div>
-        </article>
-
-        <article class="product-detail" data-product-detail="quote-machine" hidden>
-          <h3 class="product-detail__title">The Quote Machine</h3>
-          <p class="product-detail__tag">AI for Construction</p>
-          <div class="product-detail__body">
-            <p>Most general contractors still build quotes the way they did 30 years ago: print the drawings, spread them on a desk, and tally materials and labour by hand. A moderately complex residential bid takes a day; a commercial spec package can burn a week of billable time. Then the client emails back a tweak, and the whole process restarts.</p>
-            <p>The Quote Machine replaces that loop. A contractor uploads an architect's spec PDF &mdash; up to 300 pages, including drawings &mdash; and a multi-pass AI engine classifies the document by CSI division, extracts every material and labour line, and produces a fully formatted quote (PDF + Excel breakdown) in under 10 minutes. The analyzer is section-aware: schedules are parsed as structured data, drawings are read with GPT-4o vision for dimensions, cover pages are ignored. Contractors get per-pass visibility, one-click retries on sections that missed, and token-level cost transparency.</p>
-            <p>The client-facing side is just as considered. Every quote generates a unique, sanitized portal link &mdash; internal pricing, markups, and overhead never leave the server. Clients can accept with signature, decline with a reason, or request specific changes via a free-text message. Those requests surface on the contractor's dashboard with one-click &ldquo;Create Revision&rdquo; buttons. Revisions are versioned with a side-by-side diff view so both sides see exactly what moved between v1 and v2 &mdash; items added (green), removed (red), modified (blue) with dollar deltas.</p>
-            <p>Other touches: automated follow-ups for quotes that were viewed but not responded to, expiry-aware nudges before validity dates lapse, a clients directory tying every quote to a customer record, saveable templates from any past quote, and a time-savings dashboard that shows how much time is being reclaimed each month vs. manual quoting.</p>
-          </div>
-        </article>
-
-        <article class="product-detail" data-product-detail="innermost" hidden>
-          <h3 class="product-detail__title">Innermost</h3>
-          <p class="product-detail__tag">Human Orientation</p>
-          <div class="product-detail__body">
-            <p><em>The next best step starts within.</em></p>
-            <p>Innermost is an AI-guided human orientation and life-design platform. Where most self-help tools push inspiration, Innermost does the opposite &mdash; it triages. You can&rsquo;t talk purpose to someone whose foundation is crumbling, so the app assesses stability across six domains (physical, emotional, financial, social, purpose, habits), maps them onto a five-layer pyramid (safety &rarr; stability &rarr; belonging &rarr; confidence &rarr; direction), and surfaces the weakest layer as priority before touching anything aspirational.</p>
-            <p>The core loop &mdash; <strong>Assess &rarr; Stabilize &rarr; Orient &rarr; Activate</strong> &mdash; drives every feature. A structured intake captures values, strengths, frustrations, stability, and aspirations. Claude analyzes the full profile to generate a personalized MTP (Massive Transformative Purpose), a hard truth, a poison to remove, a strength to lean into, and a phased roadmap. Ongoing discovery conversations and journaling progressively deepen the profile over time &mdash; the MTP isn&rsquo;t a one-shot quiz result, it evolves. Periodic check-ins track stability shifts; life events are logged; the roadmap adjusts.</p>
-            <p>Built on a specific worldview: triage before transcendence, minimal necessary intervention, remove poison before adding nutrition, balance over ideology, harmony with reality. The philosophy isn&rsquo;t decoration &mdash; it&rsquo;s embedded in every AI prompt as a non-optional doctrine, and critical triage decisions (priority layer, framework phase, foundation-at-risk flag) are computed deterministically server-side so the AI can&rsquo;t drift into generic advice.</p>
-            <p><strong>Stack:</strong> Next.js 15 &middot; TypeScript &middot; Supabase (auth + Postgres + RLS) &middot; Anthropic Claude &middot; Tailwind.</p>
-          </div>
-        </article>
-      </div>
-      <p class="products__cta-text">Want something built for your business? <a href="#consulting" class="text-link">Let's talk &rarr;</a></p>
+  <!-- 9. Products — CTA to dedicated /products page -->
+  <section class="products-cta" id="products">
+    <div class="products-cta__inner">
+      <p class="products-cta__label">Products</p>
+      <h2 class="products-cta__title">Proof of capability.</h2>
+      <p class="products-cta__desc">We build AI systems that solve real problems &mdash; for businesses, schools, and anyone willing to dream bigger. Five products in two months. Because when you understand how AI works, anything is possible.</p>
+      <a href="/products" class="btn btn--primary btn--large">See Our Products &rarr;</a>
     </div>
   </section>
 
@@ -367,15 +286,17 @@
         <div class="about__content">
           <p class="section-label">About</p>
           <h2 class="about__title">Grounded in reality.</h2>
-          <p class="about__lead">I've spent my career in high-stakes environments where clarity matters and the wrong call has real consequences. That background taught me one thing above all else: deal with what matters most, first. Everything else can wait.</p>
-          <p class="about__text">That mindset is the foundation of this company. I help people and organizations understand what's real, figure out what matters, and use the right tools to solve the real problems.</p>
+          <p class="about__lead">We&rsquo;ve spent our careers in high-stakes environments where clarity matters and the wrong call has real consequences. That background taught us one thing above all else: deal with what matters most, first. Everything else can wait.</p>
+          <p class="about__text">That mindset is the foundation of this company. We help people and organizations understand what&rsquo;s real, figure out what matters, and use the right tools to solve the real problems.</p>
+          <p class="about__text">An old man and AI. Tradition and the future. We sit at that intersection &mdash; bringing powerful new tools to the people, businesses, and generations who built the world we&rsquo;re standing on. Greg and Tyler run Oldman AI Solutions together, with the same conviction: good work leaves people better off than you found them.</p>
           <details class="about__more">
             <summary>Read more about how we think</summary>
-            <p class="about__text">AI is powerful. But it's a tool. A lever, not a replacement. The people holding it are what matter. That's why every engagement starts with the human problem, not the technology.</p>
-            <p class="about__text">Whether I'm on stage, in a boardroom, or building a custom system, the question is always the same: what's the real problem, and what's the next best step?</p>
+            <p class="about__text">We believe people should shape lives after their own goals, not fall into whatever mold happens to be available. The default question shouldn&rsquo;t be &ldquo;what job pays my bills&rdquo; &mdash; it should be &ldquo;what do I want to build with my life, and how do we make that real.&rdquo; We&rsquo;re here to reduce suffering, keep ambition from going to waste, and leave the people we work with better off than we found them.</p>
+            <p class="about__text">AI is powerful. But it&rsquo;s a tool. A lever, not a replacement. The people holding it are what matter. That&rsquo;s why every engagement starts with the human problem, not the technology.</p>
+            <p class="about__text">Whether we&rsquo;re on stage, in a boardroom, or building a custom system, the question is always the same: what&rsquo;s the real problem, and what&rsquo;s the next best step?</p>
           </details>
           <div class="about__beliefs">
-            <h4>What I Believe</h4>
+            <h4>What We Believe</h4>
             <ul>
               <li>Reality first.</li>
               <li>Solve the real problem.</li>
@@ -510,7 +431,7 @@
           <h4>Explore</h4>
           <ul>
             <li><a href="#offerings">Services</a></li>
-            <li><a href="#products">Products</a></li>
+            <li><a href="/products">Products</a></li>
             <li><a href="/shop">Shops</a></li>
             <li><a href="https://fantasy.oldmanaisolutions.com" target="_blank" rel="noopener">Fantasy Draft &rarr;</a></li>
           </ul>

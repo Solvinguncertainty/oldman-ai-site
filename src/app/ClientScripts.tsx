@@ -28,6 +28,38 @@ export default function ClientScripts() {
     };
     navLinkEls.forEach((l) => l.addEventListener("click", onNavLinkClick));
 
+    // --- "More" dropdown (Shop + Fantasy Draft) ---
+    const navMore = document.getElementById("navMore");
+    const navMoreToggle = navMore?.querySelector<HTMLButtonElement>(
+      ".nav__more-toggle"
+    );
+    const closeNavMore = () => {
+      navMore?.classList.remove("is-open");
+      navMoreToggle?.setAttribute("aria-expanded", "false");
+    };
+    const onNavMoreToggleClick = (e: Event) => {
+      e.stopPropagation();
+      const isOpen = navMore?.classList.toggle("is-open");
+      navMoreToggle?.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    };
+    navMoreToggle?.addEventListener("click", onNavMoreToggleClick);
+    // Close on outside click
+    const onDocClickForMore = (e: MouseEvent) => {
+      if (!navMore) return;
+      if (!navMore.contains(e.target as Node)) closeNavMore();
+    };
+    document.addEventListener("click", onDocClickForMore);
+    // Close on escape
+    const onKeyDownForMore = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeNavMore();
+    };
+    document.addEventListener("keydown", onKeyDownForMore);
+    // Close when a menu item is clicked
+    const navMoreItems = navMore
+      ? Array.from(navMore.querySelectorAll<HTMLAnchorElement>(".nav__more-menu a"))
+      : [];
+    navMoreItems.forEach((a) => a.addEventListener("click", closeNavMore));
+
     // --- Smooth scroll offset for fixed nav ---
     const anchors = Array.from(
       document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
@@ -310,6 +342,10 @@ export default function ClientScripts() {
       window.removeEventListener("scroll", onScroll);
       navToggle?.removeEventListener("click", onNavToggleClick);
       navLinkEls.forEach((l) => l.removeEventListener("click", onNavLinkClick));
+      navMoreToggle?.removeEventListener("click", onNavMoreToggleClick);
+      document.removeEventListener("click", onDocClickForMore);
+      document.removeEventListener("keydown", onKeyDownForMore);
+      navMoreItems.forEach((a) => a.removeEventListener("click", closeNavMore));
       anchorHandlers.forEach(({ anchor, handler }) =>
         anchor.removeEventListener("click", handler)
       );

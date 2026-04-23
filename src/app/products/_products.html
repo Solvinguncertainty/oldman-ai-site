@@ -1,0 +1,209 @@
+
+  <!-- Top Logo Strip -->
+  <div class="top-logo">
+    <img src="/logo.svg" alt="Oldman AI Solutions" class="top-logo__img">
+    <p class="top-logo__tagline">Bridging Generations &bull; Building the Future</p>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="/" class="nav__logo">
+        <img src="/logo-circular.png" alt="Oldman AI Solutions" class="nav__logo-img">
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="/#offerings">Services</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/#about">About</a></li>
+        <li class="nav__more" id="navMore">
+          <button type="button" class="nav__more-toggle" aria-haspopup="menu" aria-expanded="false">
+            More
+            <svg class="nav__more-chevron" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+              <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav__more-menu" role="menu">
+            <a href="/shop" role="menuitem">Shop</a>
+            <a href="https://fantasy.oldmanaisolutions.com" target="_blank" rel="noopener" role="menuitem">Fantasy Draft &rarr;</a>
+          </div>
+        </li>
+        <li><a href="/#contact" class="nav__cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Products Hero -->
+  <section class="products-hero">
+    <div class="container">
+      <p class="section-label">Products</p>
+      <h1 class="products-hero__title">Proof of capability.</h1>
+      <p class="products-hero__lead">When you understand the principles of AI, you can build anything. These aren&rsquo;t our product line &mdash; they&rsquo;re proof of capability. Five domains, one team. This is what&rsquo;s possible when you stop treating AI as a feature and start treating it as a medium.</p>
+    </div>
+  </section>
+
+  <!-- Products grid + detail panel -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="products__grid">
+        <button type="button" class="product-card" data-product-tile="foreman-os" aria-expanded="false">
+          <div class="product-card__logo">
+            <!-- TODO: swap /foreman-os-logo.svg for the real Foreman OS brand asset when available. -->
+            <img src="/foreman-os-logo.svg" alt="Foreman OS" />
+          </div>
+          <h3 class="product-card__title">Foreman OS</h3>
+          <p class="product-card__desc">A proprietary AI operating system deployed on-site at your business. Your data never leaves your building. You own the deployment. Automation without the cloud.</p>
+          <span class="product-card__tag">On-Site AI Infrastructure</span>
+        </button>
+
+        <button type="button" class="product-card" data-product-tile="quote-machine" aria-expanded="false">
+          <div class="product-card__logo">
+            <img src="/quote-machine-logo.png" alt="The Quote Machine" />
+          </div>
+          <h3 class="product-card__title">The Quote Machine</h3>
+          <p class="product-card__desc">AI-powered quoting for construction contractors. Upload a spec PDF, get a detailed itemized quote in minutes.</p>
+          <span class="product-card__tag">AI for Construction</span>
+        </button>
+
+        <button type="button" class="product-card" data-product-tile="oneforty" aria-expanded="false">
+          <div class="product-card__logo">
+            <img src="/oneforty-logo.svg" alt="OneForty" />
+          </div>
+          <h3 class="product-card__title">OneForty</h3>
+          <p class="product-card__desc">An AI-powered longevity platform that fuses workouts, sleep, nutrition, supplements, and biomarkers into one daily action plan. Live to 100. Feel like 40.</p>
+          <span class="product-card__tag">Longevity &amp; Health</span>
+        </button>
+
+        <button type="button" class="product-card" data-product-tile="innermost" aria-expanded="false">
+          <div class="product-card__logo product-card__logo--portrait">
+            <img src="/innermost-logo.svg" alt="Innermost" />
+          </div>
+          <h3 class="product-card__title">Innermost</h3>
+          <p class="product-card__desc">An AI-guided human orientation platform. Helps people identify what matters, address what&rsquo;s broken, and take the next honest step &mdash; not the whole life plan.</p>
+          <span class="product-card__tag">Human Orientation</span>
+        </button>
+
+        <button type="button" class="product-card" data-product-tile="pudwiser" aria-expanded="false">
+          <div class="product-card__logo">
+            <img src="/pudwiser-logo.svg" alt="Pudwiser" />
+          </div>
+          <h3 class="product-card__title">Pudwiser</h3>
+          <p class="product-card__desc">Perfect puddings. Wherever you roast. A location-aware Yorkshire pudding recipe calibrated to your exact kitchen, oven, and climate.</p>
+          <span class="product-card__tag">Baking Intelligence</span>
+        </button>
+      </div>
+
+      <div class="products__detail-panel" id="productDetailPanel" hidden>
+        <button type="button" class="products__detail-close" id="productDetailClose" aria-label="Close details">&times;</button>
+
+        <article class="product-detail" data-product-detail="foreman-os" hidden>
+          <h3 class="product-detail__title">Foreman OS</h3>
+          <p class="product-detail__tag">On-Site AI Infrastructure</p>
+          <div class="product-detail__body">
+            <p><em>Your AI. Your building. Your data.</em></p>
+            <p>Foreman OS is our flagship product: a proprietary AI operating system that runs on hardware we deploy inside your business. It does what cloud AI services do &mdash; automation, decision support, document intelligence, operations workflows &mdash; without any of your data ever leaving the building it was generated in.</p>
+            <p>For businesses that handle sensitive contracts, proprietary methods, customer records, or regulated information, renting your AI infrastructure from a cloud provider is a liability. Your prompts go to someone else&rsquo;s server. Your outputs train someone else&rsquo;s models. Your operations depend on uptime you don&rsquo;t control. Foreman OS removes all of that. The models run on your hardware, the data stays on your network, the workflows are built to your business.</p>
+            <p>You own the deployment. We design, install, and maintain the system &mdash; but the infrastructure, the models, and the data are yours. No subscription lock-in, no vendor dependency, no silent updates that change how your AI behaves. If we walked away tomorrow, your Foreman OS would still be running the same way.</p>
+            <p><strong>This is AI infrastructure you own, not AI you rent.</strong></p>
+          </div>
+        </article>
+
+        <article class="product-detail" data-product-detail="quote-machine" hidden>
+          <h3 class="product-detail__title">The Quote Machine</h3>
+          <p class="product-detail__tag">AI for Construction</p>
+          <div class="product-detail__body">
+            <p>Most general contractors still build quotes the way they did 30 years ago: print the drawings, spread them on a desk, and tally materials and labour by hand. A moderately complex residential bid takes a day; a commercial spec package can burn a week of billable time. Then the client emails back a tweak, and the whole process restarts.</p>
+            <p>The Quote Machine replaces that loop. A contractor uploads an architect's spec PDF &mdash; up to 300 pages, including drawings &mdash; and a multi-pass AI engine classifies the document by CSI division, extracts every material and labour line, and produces a fully formatted quote (PDF + Excel breakdown) in under 10 minutes. The analyzer is section-aware: schedules are parsed as structured data, drawings are read with GPT-4o vision for dimensions, cover pages are ignored. Contractors get per-pass visibility, one-click retries on sections that missed, and token-level cost transparency.</p>
+            <p>The client-facing side is just as considered. Every quote generates a unique, sanitized portal link &mdash; internal pricing, markups, and overhead never leave the server. Clients can accept with signature, decline with a reason, or request specific changes via a free-text message. Those requests surface on the contractor's dashboard with one-click &ldquo;Create Revision&rdquo; buttons. Revisions are versioned with a side-by-side diff view so both sides see exactly what moved between v1 and v2 &mdash; items added (green), removed (red), modified (blue) with dollar deltas.</p>
+            <p>Other touches: automated follow-ups for quotes that were viewed but not responded to, expiry-aware nudges before validity dates lapse, a clients directory tying every quote to a customer record, saveable templates from any past quote, and a time-savings dashboard that shows how much time is being reclaimed each month vs. manual quoting.</p>
+          </div>
+        </article>
+
+        <article class="product-detail" data-product-detail="oneforty" hidden>
+          <h3 class="product-detail__title">OneForty</h3>
+          <p class="product-detail__tag">Longevity &amp; Health</p>
+          <div class="product-detail__body">
+            <p><em>Live to 100. Feel like 40.</em></p>
+            <p>OneForty is an AI-native health-performance platform built for people who want to add healthy decades to their life &mdash; not just hit a step goal. It unifies the data streams that usually live in five different apps (training, sleep, readiness, nutrition, supplements, lab biomarkers, body measurements) into a single intelligence layer that produces one prescription each morning: what to eat, how hard to train, what to take, and what to recover from.</p>
+            <p>Behind the scenes, OneForty pulls sleep, HRV, training load, nutrition, and biomarker data into one intelligence layer, detects hidden patterns, and turns it all into plain-English coaching. Workouts come with rep-by-rep AI-narrated audio in whatever coaching style fits you that day &mdash; from drill sergeant to zen. Macros get estimated from photos. Meal plans and grocery lists generate weekly. Lab results become readable health reports. Progress gets visible and celebrated. The complexity stays hidden; the clarity shows up.</p>
+            <p>The mission is simple and the headline says it on every screen: <strong>Live to 100. Feel like 40.</strong></p>
+          </div>
+        </article>
+
+        <article class="product-detail" data-product-detail="innermost" hidden>
+          <h3 class="product-detail__title">Innermost</h3>
+          <p class="product-detail__tag">Human Orientation</p>
+          <div class="product-detail__body">
+            <p><em>The next best step starts within.</em></p>
+            <p>Innermost is an AI-guided human orientation and life-design platform. Where most self-help tools push inspiration, Innermost does the opposite &mdash; it triages. You can&rsquo;t talk purpose to someone whose foundation is crumbling, so the app assesses stability across six domains (physical, emotional, financial, social, purpose, habits), maps them onto a five-layer pyramid (safety &rarr; stability &rarr; belonging &rarr; confidence &rarr; direction), and surfaces the weakest layer as priority before touching anything aspirational.</p>
+            <p>The core loop &mdash; <strong>Assess &rarr; Stabilize &rarr; Orient &rarr; Activate</strong> &mdash; drives every feature. A structured intake captures values, strengths, frustrations, stability, and aspirations. Claude analyzes the full profile to generate a personalized MTP (Massive Transformative Purpose), a hard truth, a poison to remove, a strength to lean into, and a phased roadmap. Ongoing discovery conversations and journaling progressively deepen the profile over time &mdash; the MTP isn&rsquo;t a one-shot quiz result, it evolves. Periodic check-ins track stability shifts; life events are logged; the roadmap adjusts.</p>
+            <p>Built on a specific worldview: triage before transcendence, minimal necessary intervention, remove poison before adding nutrition, balance over ideology, harmony with reality. The philosophy isn&rsquo;t decoration &mdash; it&rsquo;s embedded in every AI prompt as a non-optional doctrine, and critical triage decisions (priority layer, framework phase, foundation-at-risk flag) are computed deterministically server-side so the AI can&rsquo;t drift into generic advice.</p>
+          </div>
+        </article>
+
+        <article class="product-detail" data-product-detail="pudwiser" hidden>
+          <h3 class="product-detail__title">Pudwiser</h3>
+          <p class="product-detail__tag">Baking Intelligence</p>
+          <div class="product-detail__body">
+            <p><em>Perfect puddings. Wherever you roast.</em></p>
+            <p>Pudwiser is premium baking intelligence for Yorkshire puddings. Elevation, humidity, and air pressure change how batter rises &mdash; and fan ovens, cupcake tins, and cast iron all behave differently. Pudwiser takes one classic, trusted base recipe and calibrates it to your exact location and kitchen setup, so you get the same confident rise every time.</p>
+            <p>Save your home recipe, troubleshoot a bake that didn&rsquo;t quite work, and share results with a community of bakers posting their weekly rises. No self-raising flour, no guesswork, no random recipes from the internet &mdash; just one recipe, dialled in for you.</p>
+            <ul>
+              <li><strong>Location-aware</strong> &mdash; adjusts for elevation, humidity, and pressure</li>
+              <li><strong>Kitchen-tuned</strong> &mdash; fan or conventional, cupcake tin or cast iron</li>
+              <li><strong>Trusted, not random</strong> &mdash; one classic recipe, calibrated every time</li>
+              <li><strong>Community</strong> &mdash; weekly featured bakes from other users</li>
+              <li><strong>Troubleshooter</strong> &mdash; diagnose a flat or soggy bake</li>
+            </ul>
+            <p>Start baking free for 7 days.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="products__cta-text">Want something built for your business? <a href="/#contact" class="text-link">Let&rsquo;s talk &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Oldman AI Solutions</p>
+          <p class="footer__brand-desc">A human-centered problem-solving firm. We build custom AI solutions, run full business assessments, and teach you to build your own.</p>
+          <p class="footer__brand-line">Same tool. Different outcome.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/#offerings">Services</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/shop">Shops</a></li>
+            <li><a href="https://fantasy.oldmanaisolutions.com" target="_blank" rel="noopener">Fantasy Draft &rarr;</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#field-notes">Field Notes</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:greg@oldmanaisolutions.com">Email</a></li>
+            <li><a href="https://open.spotify.com/show/1KHydFTPiWJ2Liu4hdgi5r" target="_blank">Podcast</a></li>
+            <li><a href="https://www.youtube.com/@OldmanAISolutions" target="_blank">YouTube</a></li>
+            <li><a href="https://www.instagram.com/oldmanaisolutions" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Oldman AI Solutions Inc.</p>
+      </div>
+    </div>
+  </footer>
