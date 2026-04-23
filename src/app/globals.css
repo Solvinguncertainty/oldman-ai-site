@@ -1476,44 +1476,55 @@ ul { list-style: none; }
 
 /* ---- Listen & Connect ---- */
 .listen {
-  padding: 48px 0 40px;
+  padding: 64px 0 56px;
   background: var(--white);
   text-align: center;
 }
 
 .listen__label {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 
 .listen__icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 56px;
   flex-wrap: wrap;
 }
 
 .listen__icon {
-  width: 42px;
-  height: 42px;
+  width: 126px;
+  height: 126px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--gray-500);
   border-radius: 50%;
-  transition: color 0.2s, transform 0.2s;
+  transition: transform 0.2s ease, filter 0.2s ease;
   text-decoration: none;
 }
 
 .listen__icon svg {
-  width: 24px;
-  height: 24px;
+  width: 72px;
+  height: 72px;
 }
 
 .listen__icon:hover {
-  color: var(--blue);
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.04);
+  filter: brightness(1.08);
+}
+
+/* Brand colours per platform */
+.listen__icon--spotify   { color: #1DB954; }
+.listen__icon--youtube   { color: #FF0000; }
+.listen__icon--facebook  { color: #1877F2; }
+.listen__icon--instagram { color: #E4405F; }
+
+@media (max-width: 768px) {
+  .listen__icons { gap: 32px; }
+  .listen__icon { width: 88px; height: 88px; }
+  .listen__icon svg { width: 52px; height: 52px; }
 }
 
 /* ---- Credibility Strip ---- */
