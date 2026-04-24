@@ -1186,6 +1186,26 @@ ul { list-style: none; }
   align-self: flex-start;
 }
 
+/* External-link variant: tile jumps to a full live site instead of
+   opening an inline detail panel. */
+.product-card--external {
+  position: relative;
+}
+
+.product-card__external-label {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.product-card--external:hover .product-card__external-label {
+  color: #2E6AA8;
+}
+
 .product-card__header {
   position: relative;
 }

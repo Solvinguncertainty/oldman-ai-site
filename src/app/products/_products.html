@@ -57,14 +57,15 @@
           <span class="product-card__tag">On-Site AI Infrastructure</span>
         </button>
 
-        <button type="button" class="product-card" data-product-tile="quote-machine" aria-expanded="false">
+        <a href="https://quotes.oldmanaisolutions.com/" target="_blank" rel="noopener noreferrer" class="product-card product-card--external">
           <div class="product-card__logo">
-            <img src="/quote-machine-logo.png" alt="The Quote Machine" />
+            <img src="/quote-machine-logo.png" alt="Oldman Quote" />
           </div>
-          <h3 class="product-card__title">The Quote Machine</h3>
+          <h3 class="product-card__title">Oldman Quote</h3>
           <p class="product-card__desc">AI-powered quoting for construction contractors. Upload a spec PDF, get a detailed itemized quote in minutes.</p>
           <span class="product-card__tag">AI for Construction</span>
-        </button>
+          <span class="product-card__external-label">Visit site &rarr;</span>
+        </a>
 
         <button type="button" class="product-card" data-product-tile="oneforty" aria-expanded="false">
           <div class="product-card__logo">
@@ -109,16 +110,10 @@
           </div>
         </article>
 
-        <article class="product-detail" data-product-detail="quote-machine" hidden>
-          <h3 class="product-detail__title">The Quote Machine</h3>
-          <p class="product-detail__tag">AI for Construction</p>
-          <div class="product-detail__body">
-            <p>Most general contractors still build quotes the way they did 30 years ago: print the drawings, spread them on a desk, and tally materials and labour by hand. A moderately complex residential bid takes a day; a commercial spec package can burn a week of billable time. Then the client emails back a tweak, and the whole process restarts.</p>
-            <p>The Quote Machine replaces that loop. A contractor uploads an architect's spec PDF &mdash; up to 300 pages, including drawings &mdash; and a multi-pass AI engine classifies the document by CSI division, extracts every material and labour line, and produces a fully formatted quote (PDF + Excel breakdown) in under 10 minutes. The analyzer is section-aware: schedules are parsed as structured data, drawings are read with GPT-4o vision for dimensions, cover pages are ignored. Contractors get per-pass visibility, one-click retries on sections that missed, and token-level cost transparency.</p>
-            <p>The client-facing side is just as considered. Every quote generates a unique, sanitized portal link &mdash; internal pricing, markups, and overhead never leave the server. Clients can accept with signature, decline with a reason, or request specific changes via a free-text message. Those requests surface on the contractor's dashboard with one-click &ldquo;Create Revision&rdquo; buttons. Revisions are versioned with a side-by-side diff view so both sides see exactly what moved between v1 and v2 &mdash; items added (green), removed (red), modified (blue) with dollar deltas.</p>
-            <p>Other touches: automated follow-ups for quotes that were viewed but not responded to, expiry-aware nudges before validity dates lapse, a clients directory tying every quote to a customer record, saveable templates from any past quote, and a time-savings dashboard that shows how much time is being reclaimed each month vs. manual quoting.</p>
-          </div>
-        </article>
+        <!-- Oldman Quote (formerly The Quote Machine) is now live at
+             https://quotes.oldmanaisolutions.com/ — the tile links directly
+             there instead of opening an inline detail panel. -->
+
 
         <article class="product-detail" data-product-detail="oneforty" hidden>
           <h3 class="product-detail__title">OneForty</h3>
