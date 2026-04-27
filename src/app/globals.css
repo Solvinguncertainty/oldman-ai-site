@@ -1710,6 +1710,35 @@ ul { list-style: none; }
   color: var(--gray-500);
 }
 
+.contact__info-item p a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact__info-item p a:hover {
+  color: var(--blue);
+}
+
+.contact__info-blurb {
+  font-size: 0.86rem !important;
+  line-height: 1.55;
+  color: var(--gray-500);
+  margin-top: 8px !important;
+  font-style: italic;
+}
+
+.contact__info-blurb strong {
+  display: inline !important;
+  font-size: inherit !important;
+  font-weight: 600;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  color: var(--blue) !important;
+  font-style: normal;
+}
+
 .contact__social {
   display: flex;
   gap: 12px;
