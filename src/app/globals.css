@@ -2333,3 +2333,522 @@ ul { list-style: none; }
   .training__offerings { grid-template-columns: 1fr; }
   .training__focus-areas { justify-content: center; }
 }
+
+/* ============================================================
+   COPILOT — homepage banner, /products featured card, and the
+   /copilot landing page.
+   ============================================================ */
+
+/* ---- Homepage banner ---- */
+.copilot-banner {
+  background: linear-gradient(135deg, #0E1628 0%, #182640 60%, #1E3556 100%);
+  padding: 56px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.copilot-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(0,152,231,0.18) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(233,71,148,0.10) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.copilot-banner__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  text-decoration: none;
+  color: var(--white);
+  z-index: 1;
+}
+
+.copilot-banner__mark {
+  flex-shrink: 0;
+  width: 92px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  padding: 16px;
+  transition: transform 0.3s ease;
+}
+
+.copilot-banner__mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.copilot-banner__link:hover .copilot-banner__mark {
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.copilot-banner__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.copilot-banner__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 10px;
+}
+
+.copilot-banner__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.copilot-banner__desc {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.78);
+  max-width: 720px;
+  margin-bottom: 16px;
+}
+
+.copilot-banner__desc strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.copilot-banner__cta {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #5DC9F0;
+  text-transform: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.copilot-banner__link:hover .copilot-banner__cta {
+  color: #99dfff;
+  transform: translateX(2px);
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .copilot-banner { padding: 40px 0; }
+  .copilot-banner__link { flex-direction: column; gap: 24px; text-align: center; }
+  .copilot-banner__mark { width: 76px; height: 76px; padding: 14px; }
+  .copilot-banner__desc { margin-left: auto; margin-right: auto; }
+}
+
+/* ---- Featured product card variant on /products ---- */
+.product-card--featured {
+  position: relative;
+  border-color: rgba(0,152,231,0.5);
+  background: linear-gradient(170deg, #FFFFFF 0%, #F0F8FF 100%);
+}
+
+.product-card--featured:hover {
+  border-color: rgba(0,152,231,0.8);
+  box-shadow: 0 8px 28px rgba(0,152,231,0.18);
+}
+
+.product-card__featured-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: linear-gradient(135deg, #0098E7 0%, #5DC9F0 100%);
+  padding: 4px 10px;
+  border-radius: 100px;
+  z-index: 1;
+}
+
+.product-card__logo--copilot {
+  background: linear-gradient(135deg, #F8FBFF 0%, #EAF4FE 100%);
+}
+
+.product-card__logo--copilot img {
+  max-width: 64%;
+  max-height: 64%;
+  object-fit: contain;
+}
+
+/* ---- /copilot landing page ---- */
+
+/* Hero */
+.copilot-hero {
+  position: relative;
+  background: linear-gradient(140deg, var(--navy) 0%, #1A2B3D 50%, #182640 100%);
+  padding: 60px 0 100px;
+  overflow: hidden;
+}
+
+.copilot-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 75% 25%, rgba(0,152,231,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 85%, rgba(233,71,148,0.10) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.copilot-hero__inner {
+  position: relative;
+  z-index: 2;
+  padding-top: 80px;
+}
+
+.copilot-hero__content {
+  max-width: 880px;
+}
+
+.copilot-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 18px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+
+.copilot-hero__mark {
+  width: 22px;
+  height: 22px;
+}
+
+.copilot-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.copilot-hero__subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.3px;
+  margin-bottom: 40px;
+  max-width: 640px;
+}
+
+.copilot-hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Hook section */
+.copilot-hook {
+  padding: 100px 0 80px;
+  background: var(--gray-100);
+}
+
+.copilot-hook__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 36px;
+  max-width: 720px;
+}
+
+.copilot-hook__body {
+  max-width: 720px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--gray-700);
+}
+
+.copilot-hook__body p {
+  margin-bottom: 1.2em;
+}
+
+.copilot-hook__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Thesis slab */
+.copilot-thesis {
+  background: var(--navy);
+  padding: 120px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.copilot-thesis::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(0,152,231,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.copilot-thesis > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.copilot-thesis__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 24px;
+}
+
+.copilot-thesis__headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 36px;
+  letter-spacing: -0.5px;
+}
+
+.copilot-thesis__headline--accent {
+  color: #5DC9F0;
+}
+
+.copilot-thesis__body {
+  max-width: 760px;
+  margin: 0 auto 44px;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.78);
+}
+
+.copilot-thesis__punch {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-style: italic;
+  color: var(--tan);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding: 18px 0;
+}
+
+/* Services grid */
+.copilot-services {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.copilot-services__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 56px;
+  max-width: 720px;
+}
+
+.copilot-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.copilot-service {
+  background: var(--gray-100);
+  border-radius: 12px;
+  padding: 36px 32px;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.3s;
+}
+
+.copilot-service:hover {
+  background: var(--white);
+  border-color: var(--blue);
+  box-shadow: 0 8px 28px rgba(58,123,191,0.12);
+  transform: translateY(-2px);
+}
+
+.copilot-service__num {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--blue);
+  display: block;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.copilot-service__title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.copilot-service__desc {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+}
+
+@media (max-width: 968px) {
+  .copilot-services__grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* Why this works */
+.copilot-why {
+  padding: 100px 0;
+  background: var(--gray-100);
+}
+
+.copilot-why__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 56px;
+  max-width: 720px;
+}
+
+.copilot-why__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+}
+
+.copilot-why__item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.copilot-why__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue-pale);
+  border-radius: 10px;
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+
+.copilot-why__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.copilot-why__item h4 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+.copilot-why__item p {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+}
+
+@media (max-width: 768px) {
+  .copilot-why__grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* Credential section */
+.copilot-credential {
+  padding: 100px 0;
+  background: var(--white);
+  text-align: center;
+}
+
+.copilot-credential__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.2;
+  margin: 0 auto 28px;
+  max-width: 820px;
+}
+
+.copilot-credential__body {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--gray-700);
+}
+
+/* Final CTA */
+.copilot-final-cta {
+  background: linear-gradient(140deg, var(--navy) 0%, #1A2B3D 100%);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.copilot-final-cta__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+  margin: 0 auto 20px;
+  max-width: 760px;
+}
+
+.copilot-final-cta__body {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.78);
+}
+
+.copilot-final-cta__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .copilot-hero { padding: 40px 0 70px; }
+  .copilot-hero__inner { padding-top: 60px; }
+  .copilot-hook,
+  .copilot-services,
+  .copilot-why,
+  .copilot-credential,
+  .copilot-final-cta { padding: 70px 0; }
+  .copilot-thesis { padding: 80px 0; }
+}

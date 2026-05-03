@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Microsoft Copilot">
+  <defs>
+    <linearGradient id="cp-blue" x1="20%" y1="20%" x2="80%" y2="80%">
+      <stop offset="0%" stop-color="#0098E7"/>
+      <stop offset="100%" stop-color="#5DC9F0"/>
+    </linearGradient>
+    <linearGradient id="cp-pink" x1="80%" y1="80%" x2="20%" y2="20%">
+      <stop offset="0%" stop-color="#FF7B00"/>
+      <stop offset="55%" stop-color="#E94794"/>
+      <stop offset="100%" stop-color="#A726BB"/>
+    </linearGradient>
+  </defs>
+  <!-- Upper-left petal (blue/teal) -->
+  <path d="M50,12 C28,12 12,28 12,50 C12,42 18,30 30,30 C42,30 48,38 48,50 L48,62 C48,52 40,46 30,46 C18,46 12,58 12,70 C12,50 24,12 50,12 Z"
+        fill="url(#cp-blue)"/>
+  <!-- Lower-right petal (pink/orange) -->
+  <path d="M50,88 C72,88 88,72 88,50 C88,58 82,70 70,70 C58,70 52,62 52,50 L52,38 C52,48 60,54 70,54 C82,54 88,42 88,30 C88,50 76,88 50,88 Z"
+        fill="url(#cp-pink)"/>
+</svg>
